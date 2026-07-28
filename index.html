@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<title>Commercial Creativity | Slalom</title>
+<style>
+  :root{
+    --navy:#002FAF;
+    --blue:#0C62FB;
+    --cyan:#1BE1F2;
+    --coral:#FF4D5F;
+    --purple:#C7B9FF;
+    --lime:#DEFF4D;
+    --ink:#0A0A0A;
+    --grey:#666666;
+    --line:#E6E6E6;
+    --paper:#FFFFFF;
+    --coral-tint:#FFF1F2;
+    --cyan-tint:#EBFDFF;
+    --font: 'Avenir Next LT Pro','Avenir Next','Avenir','Segoe UI',Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:var(--font);
+    color:var(--ink);
+    background:var(--paper);
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  @media (max-width:640px){.wrap{padding:0 20px;}}
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1180px;margin:0 auto;padding:16px 32px;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+  }
+  .logo-mark{height:20px;width:auto;color:var(--navy);}
+  .nav-links{display:flex;gap:20px;align-items:center;}
+  .nav-links a{
+    font-size:12.5px;font-weight:700;color:var(--grey);text-decoration:none;
+    transition:color .15s ease;white-space:nowrap;
+  }
+  .nav-links a:hover{color:var(--navy);}
+  .nav-title{font-size:14px;font-weight:700;letter-spacing:0.02em;color:var(--grey);}
+  .nav-title strong{color:var(--ink);}
+  @media (max-width:980px){.nav-links{display:none;}}
+
+  /* ---------- MINI INDEX ---------- */
+  .mini-index{
+    position:sticky;top:0;z-index:45;
+    background:rgba(255,255,255,0.96);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+    opacity:0;transform:translateY(-8px);pointer-events:none;
+    transition:opacity .28s ease, transform .28s ease;
+  }
+  .mini-index.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
+  .mini-index-inner{display:flex;align-items:center;gap:18px;padding:11px 32px;}
+  .mini-index-label{
+    font-size:11px;font-weight:800;letter-spacing:0.07em;text-transform:uppercase;
+    color:var(--grey);white-space:nowrap;flex:none;
+  }
+  .mini-track{position:relative;flex:1;height:4px;border-radius:2px;
+    background:linear-gradient(90deg,var(--coral) 0%, #C7B9FF 42%, var(--cyan) 100%);
+  }
+  .mini-track .track-dot{width:13px;height:13px;top:-4.5px;border-width:2px;}
+  .mini-track .track-dot .dot-tip{bottom:19px;font-size:11px;padding:6px 9px;}
+  @media (max-width:640px){
+    .mini-index-label{display:none;}
+    .mini-index-inner{padding:9px 20px;gap:12px;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:var(--navy);color:var(--paper);
+    padding:110px 0 90px;position:relative;overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;right:-10%;top:-30%;
+    width:640px;height:640px;border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, rgba(27,225,242,0.35), rgba(12,98,251,0) 70%);
+    pointer-events:none;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--cyan);margin-bottom:22px;
+  }
+  .eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--cyan);}
+  .hero h1{
+    font-size:clamp(40px,6vw,72px);line-height:1.02;font-weight:800;
+    margin:0 0 24px;letter-spacing:-0.02em;max-width:820px;
+  }
+  .hero p.lede{
+    font-size:19px;line-height:1.55;max-width:640px;
+    color:rgba(255,255,255,0.82);margin:0 0 8px;position:relative;
+  }
+  .hero .contrast{
+    display:flex;gap:0;margin-top:44px;max-width:640px;
+    border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.16);
+  }
+  .contrast > div{flex:1;padding:20px 22px;}
+  .contrast .c1{background:rgba(255,77,95,0.14);border-right:1px solid rgba(255,255,255,0.12);}
+  .contrast .c2{background:rgba(27,225,242,0.12);}
+  .contrast .label{font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;opacity:0.75;margin-bottom:6px;}
+  .contrast .stmt{font-size:15px;line-height:1.4;font-weight:600;}
+  .contrast .c1 .label{color:#FFB3BA;}
+  .contrast .c2 .label{color:var(--cyan);}
+
+  /* ---------- SECTION HEADS ---------- */
+  .section{padding:90px 0;}
+  .section-head{max-width:700px;margin-bottom:56px;}
+  .section-head .kicker{
+    font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;
+  }
+  .section-head h2{font-size:clamp(28px,3.4vw,40px);line-height:1.12;font-weight:800;margin:0 0 16px;letter-spacing:-0.01em;}
+  .section-head p{font-size:16px;line-height:1.6;color:var(--grey);margin:0 0 10px;}
+
+  /* ---------- MARGIN REALITY ---------- */
+  .margin-section{background:var(--ink);color:var(--paper);}
+  .margin-section .section-head h2{color:var(--paper);}
+  .margin-section .section-head p{color:rgba(255,255,255,0.7);}
+  .margin-section .section-head .kicker{color:var(--cyan);}
+  .waterfall{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:28px;}
+  @media (max-width:860px){.waterfall{grid-template-columns:1fr;}}
+  .wf-step{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.14);
+    border-radius:16px;padding:26px 24px;position:relative;
+  }
+  .wf-pct{font-size:44px;font-weight:800;letter-spacing:-0.02em;line-height:1;margin-bottom:6px;}
+  .wf-step:nth-child(1) .wf-pct{color:var(--cyan);}
+  .wf-step:nth-child(2) .wf-pct{color:var(--purple);}
+  .wf-step:nth-child(3) .wf-pct{color:var(--coral);}
+  .wf-name{font-size:13px;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:12px;color:rgba(255,255,255,0.9);}
+  .wf-desc{font-size:14px;line-height:1.55;color:rgba(255,255,255,0.65);margin:0;}
+  .margin-punch{
+    background:rgba(255,77,95,0.12);border:1px solid rgba(255,77,95,0.3);
+    border-radius:14px;padding:22px 24px;font-size:16px;line-height:1.6;
+  }
+  .margin-punch strong{color:var(--paper);}
+
+  /* ---------- SITUATION FINDER ---------- */
+  .situation-section{border-bottom:1px solid var(--line);}
+  .chip-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px;}
+  .situation-chip{
+    font-family:var(--font);font-size:13.5px;font-weight:700;
+    padding:9px 16px;border-radius:24px;
+    border:1.5px solid var(--line);background:var(--paper);color:var(--ink);
+    cursor:pointer;transition:background .15s ease, border-color .15s ease, color .15s ease;
+  }
+  .situation-chip:hover{border-color:var(--blue);}
+  .situation-chip.active{background:var(--navy);border-color:var(--navy);color:var(--paper);}
+  .filter-status{
+    margin-top:20px;font-size:13.5px;color:var(--grey);
+    display:flex;align-items:center;gap:12px;min-height:20px;
+  }
+  .filter-status .clear-btn{
+    font-size:13px;font-weight:800;color:var(--blue);background:none;border:none;
+    cursor:pointer;padding:0;font-family:var(--font);text-decoration:underline;
+  }
+  .filter-status .clear-btn:hover{color:var(--navy);}
+
+  /* ---------- CREATIVITY INDEX ---------- */
+  .index-section{background:#FAFAFA;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .index-scale-labels{
+    display:flex;justify-content:space-between;
+    font-size:12px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:14px;
+  }
+  .index-scale-labels span:first-child{color:var(--coral);}
+  .index-scale-labels span:last-child{color:#0B9DAB;}
+  .track-outer{position:relative;padding:38px 0 74px;}
+  .track-bar{
+    height:6px;border-radius:3px;
+    background:linear-gradient(90deg,var(--coral) 0%, #C7B9FF 42%, var(--cyan) 100%);
+    position:relative;
+  }
+  .track-dot{
+    position:absolute;top:-8px;width:22px;height:22px;border-radius:50%;
+    border:3px solid var(--paper);box-shadow:0 2px 6px rgba(0,0,0,0.18);
+    cursor:pointer;transform:translateX(-50%);
+    transition:transform .15s ease, opacity .2s ease;
+  }
+  .track-dot:hover, .track-dot:focus-visible{transform:translateX(-50%) scale(1.25);outline:none;}
+  .track-dot.standard{background:var(--coral);}
+  .track-dot.creative{background:#0B9DAB;}
+  .track-dot.dimmed{opacity:.2;}
+  .track-dot .dot-tip{
+    position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+    background:var(--ink);color:var(--paper);
+    font-size:12px;font-weight:600;line-height:1.3;
+    padding:8px 11px;border-radius:8px;white-space:nowrap;
+    opacity:0;pointer-events:none;transition:opacity .12s ease;z-index:5;
+  }
+  .track-dot .dot-tip::after{
+    content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);
+    border:5px solid transparent;border-top-color:var(--ink);
+  }
+  .track-dot:hover .dot-tip, .track-dot:focus-visible .dot-tip{opacity:1;}
+  .index-hint{font-size:13px;color:var(--grey);margin-top:6px;}
+  .index-hint strong{color:var(--ink);}
+
+  /* readiness legend */
+  .readiness-legend{
+    display:flex;flex-wrap:wrap;gap:18px;margin-top:26px;padding-top:22px;
+    border-top:1px solid var(--line);
+  }
+  .rl-item{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--grey);}
+  .rl-swatch{width:12px;height:12px;border-radius:3px;flex:none;}
+
+  /* ---------- COLUMNS ---------- */
+  .columns-section{padding:90px 0 40px;}
+  .col-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start;}
+  @media (max-width:860px){.col-grid{grid-template-columns:1fr;}}
+  .col-head{margin-bottom:28px;order:-1;}
+  .col-tag{
+    display:inline-block;font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;
+    padding:5px 11px;border-radius:20px;margin-bottom:16px;
+  }
+  .col-standard, .col-creative{display:flex;flex-direction:column;}
+  .col-standard .col-tag{background:var(--coral-tint);color:#C21F33;}
+  .col-creative .col-tag{background:var(--cyan-tint);color:#0B7C87;}
+  .col-head h3{font-size:23px;font-weight:800;margin:0 0 10px;letter-spacing:-0.01em;}
+  .col-head p{font-size:14.5px;line-height:1.55;color:var(--grey);margin:0;}
+
+  .card{
+    background:var(--paper);border:1px solid var(--line);border-radius:16px;
+    padding:24px 24px 22px;margin-bottom:16px;scroll-margin-top:120px;
+    max-height:1400px;overflow:hidden;
+    transition:box-shadow .25s ease, border-color .25s ease, opacity .3s ease,
+               max-height .4s ease, margin .4s ease, padding .4s ease, transform .3s ease, border-width .3s ease;
+  }
+  .card.flash{border-color:var(--blue);box-shadow:0 0 0 4px rgba(12,98,251,0.14);}
+  .card.filtered-out{
+    opacity:0;max-height:0;margin-top:0;margin-bottom:0;
+    padding-top:0;padding-bottom:0;border-width:0;pointer-events:none;transform:scale(0.97);
+  }
+  .card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:10px;}
+  .card h4{font-size:16.5px;font-weight:800;margin:0;letter-spacing:-0.005em;}
+
+  .badge-row{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px;}
+  .readiness{
+    font-size:10px;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;
+    padding:4px 9px;border-radius:5px;
+  }
+  .r-ready{background:#E4F6F1;color:#0A7A62;}
+  .r-signoff{background:#FFF3DF;color:#8A5A00;}
+  .r-ops{background:#F1ECFF;color:#5A3FB8;}
+  .official-tag{
+    font-size:10px;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;
+    padding:4px 9px;border-radius:5px;background:#EEF3FF;color:var(--navy);
+  }
+
+  /* Creativity meter */
+  .creativity-meter{flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:5px;padding-top:2px;}
+  .meter-bars{display:flex;align-items:flex-end;gap:3px;height:18px;}
+  .meter-bars .bar{width:5px;border-radius:2px;background:var(--line);}
+  .meter-bars .bar.filled{background:var(--grey);}
+  .col-standard .meter-bars .bar.filled{background:var(--coral);}
+  .col-creative .meter-bars .bar.filled{background:#0B9DAB;}
+  .meter-label{font-size:10.5px;font-weight:800;letter-spacing:0.02em;color:var(--grey);white-space:nowrap;}
+
+  .card p{font-size:14.5px;line-height:1.55;margin:0 0 8px;color:#2A2A2A;}
+  .card p.field-label{
+    font-size:11px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;
+    color:var(--grey);margin:14px 0 4px;
+  }
+  .card p.field-label:first-of-type{margin-top:4px;}
+  .card p.field-label.when{color:#0B7C87;}
+  .card p.field-label.margin{color:#8A5A00;}
+  .col-standard .card p.field-label.when{color:#C21F33;}
+  .card .why-not{
+    margin-top:14px;padding-top:14px;border-top:1px solid var(--line);
+    font-size:13.5px;color:var(--grey);font-style:italic;
+  }
+  .example-row{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px;}
+  .example-chip{
+    font-size:12px;font-weight:700;background:var(--cyan-tint);color:#0B7C87;
+    padding:4px 10px;border-radius:20px;
+  }
+
+  /* ---------- LEVER LADDER ---------- */
+  .levers-section{border-top:1px solid var(--line);}
+  .lever{
+    display:grid;grid-template-columns:210px 1fr;gap:24px;align-items:center;
+    padding:16px 0;border-bottom:1px solid var(--line);
+  }
+  @media (max-width:760px){.lever{grid-template-columns:1fr;gap:8px;}}
+  .lever-name{font-size:14.5px;font-weight:800;}
+  .lever-num{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:22px;height:22px;border-radius:50%;background:#EEF3FF;color:var(--navy);
+    font-size:11px;font-weight:800;margin-right:10px;
+  }
+  .lever-scale{display:flex;align-items:center;gap:14px;}
+  .lever-bar{
+    flex:1;height:5px;border-radius:3px;
+    background:linear-gradient(90deg,#CFE0FF 0%, var(--blue) 100%);
+  }
+  .lever-end{font-size:12.5px;font-weight:700;color:var(--grey);white-space:nowrap;}
+  .lever-end.low{color:#C21F33;}
+  .lever-end.high{color:var(--navy);}
+  .lever.last-resort{background:var(--coral-tint);border-radius:14px;padding:20px 22px;margin-top:18px;border-bottom:none;}
+  .lever.last-resort .lever-name{color:#C21F33;}
+  .lever.last-resort .lever-num{background:var(--coral);color:var(--paper);}
+  .lever.last-resort .lever-note{font-size:14px;line-height:1.55;color:#8A1F2C;margin:0;}
+
+  /* ---------- PROOF ---------- */
+  .proof-section{background:#FAFAFA;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .proof-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  @media (max-width:860px){.proof-grid{grid-template-columns:1fr;}}
+  .proof-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px;}
+  .proof-client{font-size:18px;font-weight:800;margin:0 0 4px;letter-spacing:-0.01em;}
+  .proof-model{font-size:11.5px;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;color:#0B7C87;margin-bottom:14px;}
+  .proof-card p{font-size:14px;line-height:1.55;color:#2A2A2A;margin:0 0 12px;}
+  .proof-metrics{display:flex;flex-wrap:wrap;gap:20px;padding-top:14px;border-top:1px solid var(--line);}
+  .proof-metric .pm-val{font-size:20px;font-weight:800;color:var(--navy);letter-spacing:-0.01em;line-height:1.2;}
+  .proof-metric .pm-lbl{font-size:11.5px;color:var(--grey);font-weight:700;}
+
+  /* ---------- PITFALLS ---------- */
+  .pitfalls-section{border-top:1px solid var(--line);}
+  .pitfall-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px;}
+  @media (max-width:860px){.pitfall-grid{grid-template-columns:1fr;}}
+  .pitfall-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 24px;}
+  .pitfall-card .flag{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:26px;height:26px;border-radius:50%;
+    background:var(--coral-tint);color:#C21F33;font-weight:800;font-size:14px;margin-bottom:14px;
+  }
+  .pitfall-card h4{font-size:15px;font-weight:800;margin:0 0 8px;}
+  .pitfall-card p{font-size:14px;line-height:1.55;color:var(--grey);margin:0;}
+
+  /* legal checklist */
+  .checklist{
+    margin-top:48px;background:#F7F9FF;border:1px solid #DFE7FF;border-radius:16px;padding:30px 32px;
+  }
+  .checklist h3{font-size:19px;font-weight:800;margin:0 0 8px;}
+  .checklist > p.intro{font-size:14.5px;line-height:1.55;color:var(--grey);margin:0 0 22px;}
+  .check-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  @media (max-width:860px){.check-grid{grid-template-columns:1fr;}}
+  .check-block h5{
+    font-size:12px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;
+    color:var(--navy);margin:0 0 10px;
+  }
+  .check-block ul{margin:0;padding-left:18px;}
+  .check-block li{font-size:13.5px;line-height:1.5;color:#2A2A2A;margin-bottom:7px;}
+
+  /* ---------- CLOSING ---------- */
+  .closing{background:var(--ink);color:var(--paper);padding:80px 0;}
+  .closing .wrap{max-width:760px;}
+  .closing h2{font-size:clamp(26px,3.2vw,34px);font-weight:800;margin:0 0 16px;letter-spacing:-0.01em;}
+  .closing p{font-size:16px;line-height:1.65;color:rgba(255,255,255,0.75);margin:0 0 10px;}
+  .closing .helpbox{
+    margin-top:32px;padding:24px 26px;border-radius:14px;
+    background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);
+  }
+  .closing .helpbox h4{font-size:13px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;color:var(--cyan);margin:0 0 12px;}
+  .closing .helpbox p{font-size:14.5px;margin:0 0 8px;}
+  .closing .rule{
+    display:block;margin-top:28px;padding-top:22px;border-top:1px solid rgba(255,255,255,0.15);
+    font-size:13px;color:rgba(255,255,255,0.5);
+  }
+
+  footer{
+    padding:28px 0 40px;font-size:12.5px;color:var(--grey);
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  }
+  footer .logo-mark{color:#BDBDBD;height:15px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{scroll-behavior:auto !important;transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <svg class="logo-mark" viewBox="0 0 216 56.1" xmlns="http://www.w3.org/2000/svg" aria-label="Slalom">
+      <g fill="currentColor">
+        <path d="M39.2 50.7C39.2 53.1 41.1 55 43.5 55L49.8 55 49.8 0 39.2 0 39.2 50.7Z"/>
+        <path d="M82.5 19.9C79.9 16.7 76.1 14.5 70.7 14.5 59.8 14.5 51.6 23.4 51.6 35.3 51.6 47.2 59.8 56.1 70.7 56.1 76.1 56.1 79.9 53.9 82.5 50.7L82.5 50.8C82.5 53.2 84.4 55.1 86.8 55.1L92.9 55.1 92.9 15.6 82.4 15.6 82.5 19.9 82.5 19.9ZM72.6 46.2C66.4 46.2 62.4 41.3 62.4 35.3 62.4 29.3 66.4 24.4 72.6 24.4 78.7 24.4 82.8 29 82.8 35.3 82.8 41.5 78.7 46.2 72.6 46.2Z"/>
+        <path d="M95.6 50.7C95.6 53.1 97.5 55 99.9 55L106.2 55 106.2 0 95.6 0 95.6 50.7 95.6 50.7Z"/>
+        <path d="M129.2 14.5C116.9 14.5 107.9 23.4 107.9 35.3 107.9 47.2 116.9 56.1 129.2 56.1 141.5 56.1 150.6 47.2 150.6 35.3 150.6 23.4 141.5 14.5 129.2 14.5ZM129.2 46.2C123.2 46.2 118.7 41.7 118.7 35.3 118.7 28.9 123.2 24.4 129.2 24.4 135.2 24.4 139.7 28.9 139.7 35.3 139.7 41.7 135.2 46.2 129.2 46.2Z"/>
+        <path d="M200.4 14.5C195.2 14.5 190 16.3 187 21.3 184.4 17.1 179.7 14.5 174 14.5 169.5 14.5 165.2 16 162.4 20.2L162.4 15.6 152 15.6 152 50.8C152 53.2 153.9 55.1 156.3 55.1L162.6 55.1 162.6 33.4C162.6 27.4 166.4 24.5 171 24.5 175.9 24.5 178.7 27.6 178.7 33.3L178.7 50.7C178.7 53.1 180.6 55 183 55L189.3 55 189.3 33.4C189.3 27.4 193.1 24.5 197.7 24.5 202.5 24.5 205.4 27.6 205.4 33.3L205.4 50.7C205.4 53.1 207.3 55 209.7 55L216 55 216 29.9C216 20.7 209.7 14.5 200.4 14.5Z"/>
+        <path d="M22.7 31 17.9 30.4C14.3 29.8 12 29.2 12.1 26.9 12.1 24.7 14 23.4 18 23.4 21.9 23.5 25.9 24.6 29 25.8 31.1 26.6 33.6 25.7 34.5 23.6L36.5 19.3C31.3 16.6 25.3 14.8 18.2 14.7 8.9 14.4 1.2 18.7 1 26.9 0.9 33.3 3.8 37.7 15.3 39.5L17.7 39.8C22.8 40.5 26.6 40.7 26.6 43.5 26.5 46.4 23.5 47.4 17.6 47.3 11.7 47.2 6.2 44.4 3.7 43L0 51.2C5.5 54.5 12.1 56.1 17.5 56.2 30.8 56.4 37.5 51.7 37.6 43.5 37.7 36.1 31.3 32 22.7 31Z"/>
+      </g>
+    </svg>
+    <div class="nav-links">
+      <a href="#situation">Find by situation</a>
+      <a href="#models">Models</a>
+      <a href="#levers">Lever ladder</a>
+      <a href="#proof">Proof</a>
+      <a href="#pitfalls">Pitfalls</a>
+    </div>
+    <div class="nav-title">Commercial <strong>Creativity</strong></div>
+  </div>
+</nav>
+
+<div class="mini-index" id="miniIndex">
+  <div class="wrap mini-index-inner">
+    <span class="mini-index-label">Creativity Index</span>
+    <div class="mini-track" id="miniTrack"></div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Life Sciences &amp; Healthcare &middot; Deal Shaping</div>
+    <h1>Most "creative commercials"<br>are just table stakes<br>wearing a costume.</h1>
+    <p class="lede">Discounts, allshore, fixed price -- these get called creative constantly. They're not. They're the price of entry now. Real commercial creativity changes <em>who carries the risk</em>, not just the number on the invoice.</p>
+    <div class="contrast">
+      <div class="c1">
+        <div class="label">What people call creative</div>
+        <div class="stmt">A lower rate, a friendlier payment term, a cheaper location.</div>
+      </div>
+      <div class="c2">
+        <div class="label">What's actually creative</div>
+        <div class="stmt">A structure where Slalom and the client both win -- or both feel it -- on the same outcome.</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="margin-section">
+  <div class="wrap section">
+    <div class="section-head">
+      <div class="kicker">Why This Matters</div>
+      <h2>A discount costs more than the number suggests.</h2>
+      <p>The reason to restructure rather than discount isn't philosophical -- it's arithmetic. Here's what actually happens to a healthy-looking engagement margin on its way to the bottom line.</p>
+    </div>
+    <div class="waterfall">
+      <div class="wf-step">
+        <div class="wf-pct">52%</div>
+        <div class="wf-name">Engagement margin</div>
+        <p class="wf-desc">What most people look at, and traditionally considered healthy. Covers people cost -- office, technology, real estate -- but not much else.</p>
+      </div>
+      <div class="wf-step">
+        <div class="wf-pct">42%</div>
+        <div class="wf-name">Account margin</div>
+        <p class="wf-desc">After business development and account management costs (around 10% on average), including pipeline support for deals both won and lost.</p>
+      </div>
+      <div class="wf-step">
+        <div class="wf-pct">12%</div>
+        <div class="wf-name">Operating income</div>
+        <p class="wf-desc">After allocated overhead of roughly 62.5%. On a $6.3M engagement, that 52% headline margin lands as about $757K of operating income.</p>
+      </div>
+    </div>
+    <div class="margin-punch">
+      <strong>The implication:</strong> Slalom needs roughly a 52% engagement margin to hit a 12% operating income target. So a "small" five-point discount isn't five points off profit -- it's a disproportionate hit to the only number that ultimately counts. That's why a margin concession should be the <em>last</em> lever you reach for, not the first.
+    </div>
+  </div>
+</section>
+
+<section class="situation-section" id="situation">
+  <div class="wrap section">
+    <div class="section-head">
+      <div class="kicker">Start Here</div>
+      <h2>What's the client situation?</h2>
+      <p>Pick what's actually going on with the client, and the models built for exactly that situation move to the top -- everything else drops away. Select more than one to narrow further, and note that several models can be combined on the same deal.</p>
+    </div>
+    <div class="chip-row" id="chipRow"></div>
+    <p class="filter-status" id="filterStatus"></p>
+  </div>
+</section>
+
+<section class="index-section" id="indexSection">
+  <div class="wrap section">
+    <div class="section-head">
+      <div class="kicker">The Creativity Index</div>
+      <h2>Twenty constructs, one spectrum.</h2>
+      <p>Every model below is placed by how much genuine commercial risk-sharing it involves -- not by how it feels in the room. Click any point to jump to it.</p>
+    </div>
+    <div class="index-scale-labels">
+      <span>Standard contracting</span>
+      <span>Creative commercials</span>
+    </div>
+    <div class="track-outer">
+      <div class="track-bar" id="trackBar"></div>
+    </div>
+    <p class="index-hint"><strong>Tip:</strong> the further right, the more Slalom and the client are genuinely sharing risk and upside together.</p>
+    <div class="readiness-legend">
+      <div class="rl-item"><span class="rl-swatch" style="background:#0A7A62;"></span> <strong style="color:var(--ink);margin-right:2px;">Ready now</strong> &mdash; supported in today's environment</div>
+      <div class="rl-item"><span class="rl-swatch" style="background:#C99400;"></span> <strong style="color:var(--ink);margin-right:2px;">Leadership sign-off</strong> &mdash; possible, but needs senior approval</div>
+      <div class="rl-item"><span class="rl-swatch" style="background:#5A3FB8;"></span> <strong style="color:var(--ink);margin-right:2px;">Ops build required</strong> &mdash; significant effort to operationalise</div>
+    </div>
+  </div>
+</section>
+
+<section class="columns-section" id="models">
+  <div class="wrap">
+    <div class="col-grid">
+
+      <!-- STANDARD COLUMN -->
+      <div class="col-standard">
+        <div class="col-head">
+          <span class="col-tag">Table stakes</span>
+          <h3>Standard Contracting</h3>
+          <p>Clients -- and sometimes we -- call these "creative." They're not. They're either how consulting has always been sold, or a straightforward lever (price, location, timing) dressed up as strategy.</p>
+        </div>
+
+        <div class="card" id="c-tm" data-score="1" data-tags="undefined-scope">
+          <div class="card-top"><h4>T&amp;M (Time &amp; Materials)</h4><span class="creativity-meter"></span></div>
+          <div class="badge-row"><span class="readiness r-ready">Ready now</span><span class="official-tag">Official: Traditional</span></div>
+          <p>How consulting used to be sold, full stop. Pay for hours, regardless of outcome.</p>
+          <p class="field-label when">When to consider</p>
+          <p>Best reserved for genuinely open-ended, exploratory work where scope can't yet be pinned down. Treat it as a stepping stone toward a fixed-price or outcome-based model once scope firms up, not a resting state -- and never use T&amp;M to carry outcome risk, which belongs in a priced fixed-fee structure.</p>
+          <div class="why-not">Increasingly taboo with clients -- it reads as "pay for effort," not "pay for value," and procurement teams now push back on it by default.</div>
+        </div>
+
+        <div class="card" id="c-discount" data-score="1" data-tags="standard-ask">
+          <div class="card-top"><h4>Straight discounts</h4><span class="creativity-meter"></span></div>
+          <div class="badge-row"><span class="readiness r-ready">Ready now</span></div>
+          <p>Cutting the rate card to win the deal.</p>
+          <p class="field-label when">When to consider</p>
+          <p>Really only a last resort -- a low-strategic-value deal, under time pressure, where there's no room left to restructure. Work the lever ladder below first: a margin concession should be the last thing you reach for, not the first.</p>
+          <div class="why-not">Not creative -- this is just saying yes to the client's ask. No structure, no shared risk, just a smaller number.</div>
+        </div>
+
+        <div class="card" id="c-allshore" data-score="2" data-tags="standard-ask">
+          <div class="card-top"><h4>Allshore delivery</h4><span class="creativity-meter"></span></div>
+          <div class="badge-row"><span class="readiness r-ready">Ready now</span></div>
+          <p>Blending in lower-cost delivery locations to bring the average rate down.</p>
+          <p class="field-label when">When to consider</p>
+          <p>Best when the work itself splits cleanly into onshore/offshore-friendly pieces and the client is genuinely comfortable with a blended delivery model -- not as a reflex answer to any rate pressure. It's one of the seven pricing levers, and a legitimate one to pull before touching margin.</p>
+          <div class="why-not">This is an efficient delivery decision, not a commercial one -- the risk profile between Slalom and the client hasn't moved at all.</div>
+        </div>
+
+        <div class="card" id="c-fixed" data-score="3" data-tags="defined-scope">
+          <div class="card-top"><h4>Fixed price</h4><span class="creativity-meter"></span></div>
+          <div class="badge-row"><span class="readiness r-ready">Ready now</span><span class="official-tag">Official: Traditional</span></div>
+          <p>Bundling the scope into a single number.</p>
+          <p class="field-label when">When to consider</p>
+          <p>Best when scope is well defined and stable -- a discrete project or phase -- rather than an evolving, ambiguous programme. It's also the right container for any outcome-based premium, since outcome risk should never be carried on T&amp;M.</p>
+          <div class="why-not">A standard commercial construct now -- most enterprise buyers expect it as the baseline, not as evidence of a creative partner.</div>
+        </div>
+
+        <div class="card" id="c-feesatrisk" data-score="4" data-tags="large-programme,outcome-risk">
+          <div class="card-top"><h4>Fees at risk</h4><span class="creativity-meter"></span></div>
+          <div class="badge-row"><span class="readiness r-ready">Ready now</span><span class="official-tag">Official: Fees At Risk</span></div>
+          <p>Invoice a standard portion (e.g. 85%) and hold the remainder back, payable only if agreed performance conditions are met.</p>
+          <p class="field-label when">When to consider</p>
+          <p>Best on larger, milestone-heavy programmes where the client's governance already expects a performance holdback, or when you want to show a wary client that Slalom will put skin in the game. Worth knowing Slalom formally treats this as an alternative pricing structure -- but in enterprise MSAs it's now the entry ticket, not the differentiator.</p>
+          <p class="field-label margin">Margin &amp; commercial impact</p>
+          <p>Risks longer invoicing cycles while waiting for client sign-off, potential margin loss on missed SLAs, and unbilled time if assumptions aren't tightly defined. Upside is a fee uplift if you over-deliver -- and it can help sell AI-led delivery to a sceptical buyer.</p>
+          <div class="why-not">More sophisticated than a discount, but it's now a standard clause in most enterprise MSAs -- procurement asks for it as a baseline.</div>
+        </div>
+
+        <div class="card" id="c-volume" data-score="5" data-tags="low-commitment,standard-ask">
+          <div class="card-top"><h4>Volume-based discounting</h4><span class="creativity-meter"></span></div>
+          <div class="badge-row"><span class="readiness r-ready">Ready now</span></div>
+          <p class="field-label">Problem</p>
+          <p>Client asks for a cheaper hourly or day rate.</p>
+          <p class="field-label">Standard fix</p>
+          <p>Offer a discounted rate in exchange for a volume commitment, softened with a three-month break clause. In practice, clients rarely exercise the break once the team beds in.</p>
+          <p class="field-label when">When to consider</p>
+          <p>Best when the client can commit to real, sustained volume -- a genuine multi-team programme. Slalom's standard framework tiers this by annual spend, and it stacks with medium/large project and procurement-introduction discounts, so check the framework before inventing a number.</p>
+          <div class="why-not">Still just a volume discount -- the break clause makes it easier to sign, not more creative.</div>
+        </div>
+      </div>
+
+      <!-- CREATIVE COLUMN -->
+      <div class="col-creative">
+        <div class="col-head">
+          <span class="col-tag">Genuine creativity</span>
+          <h3>Creative Commercials</h3>
+          <p>These change who carries the risk, tie fees to something real, or fund a discount from somewhere other than margin. This is where deals actually get won on structure, not price.</p>
+        </div>
+
+        <div class="card" id="c-effective" data-score="6" data-tags="procurement-cap">
+          <div class="card-top"><h4>Effective discount engineering</h4><span class="creativity-meter"></span></div>
+          <div class="badge-row"><span class="readiness r-ready">Ready now</span></div>
+          <p class="field-label">Problem</p>
+          <p>Procurement needs to see a bigger discount number to feel comfortable awarding -- even when the commercial reality is already tight.</p>
+          <p class="field-label">Solution</p>
+          <p>Calculate the discount on an "effective" basis: fold in things like COLA adjustments you won't pass through across a year-end, or resource already invested in the account, to arrive at a larger -- and still entirely honest -- discount figure.</p>
+          <p class="field-label when">When to consider</p>
+          <p>Best when procurement needs a bigger discount headline than the deal can genuinely absorb, and there are real costs to fold in honestly. Slalom's standard framework already stacks several named discounts, so build the effective number from those rather than inventing one.</p>
+          <p class="field-label margin">Margin &amp; commercial impact</p>
+          <p>Doesn't touch true margin at all -- it's a presentation exercise, not a giveaway. But it only works once per deal: don't let the same COLA hold get reused as a "discount" again at renewal.</p>
+          <div class="example-row"><span class="example-chip">Example: GSK</span></div>
+        </div>
+
+        <div class="card" id="c-subscription" data-score="6" data-tags="low-commitment">
+          <div class="card-top"><h4>Capacity subscription</h4><span class="creativity-meter"></span></div>
+          <div class="badge-row"><span class="readiness r-ops">Ops build required</span><span class="official-tag">Official: Subscription</span></div>
+          <p class="field-label">Problem</p>
+          <p>Procurement wants a lower unit cost and predictable spend, without re-approving a rigid SOW every time scope shifts.</p>
+          <p class="field-label">Solution</p>
+          <p>Move from project billing to a fixed monthly retainer for access to a flexible pool of capability -- an "evergreen" backlog. It avoids the optics of a discount entirely, and creates stickier, easier-to-renew revenue for Slalom.</p>
+          <p class="field-label when">When to consider</p>
+          <p>Best for accounts with a steady, ongoing need for flexible capability rather than a single scoped project. Note that true subscription pricing is flagged in Slalom's official taxonomy as requiring significant effort to operationalise -- if you need something faster, a fixed-capacity POD gets you most of the way with far less friction.</p>
+          <p class="field-label margin">Margin &amp; commercial impact</p>
+          <p>Retainer revenue is stickier but often lower margin per hour than project work in isolation -- model the annualised account value, not the headline rate.</p>
+        </div>
+
+        <div class="card" id="c-ratelock" data-score="6" data-tags="price-certainty">
+          <div class="card-top"><h4>Rate-lock partnership pricing</h4><span class="creativity-meter"></span></div>
+          <div class="badge-row"><span class="readiness r-ready">Ready now</span></div>
+          <p class="field-label">Problem</p>
+          <p>Procurement wants year-on-year cost certainty, or protection against inflationary rate rises across a multi-year deal.</p>
+          <p class="field-label">Solution</p>
+          <p>Offer a two- to three-year rate lock with a small built-in escalator, well below true inflation -- framed and positioned as strategic partnership pricing, not as a discount line.</p>
+          <p class="field-label when">When to consider</p>
+          <p>Best on multi-year strategic accounts where the client values certainty more than the lowest possible starting number. Slalom's default position is an annual increase of the greater of CPI or 4%, so any lock below that is a real concession -- price it as one.</p>
+          <p class="field-label margin">Margin &amp; commercial impact</p>
+          <p>Exposes Slalom to real cost-inflation risk if the escalator is set too low -- model your own cost trajectory before locking a rate, not just the client's budget cycle.</p>
+        </div>
+
+        <div class="card" id="c-deferred" data-score="6" data-tags="cashflow">
+          <div class="card-top"><h4>Deferred payments / front-loaded discount</h4><span class="creativity-meter"></span></div>
+          <div class="badge-row"><span class="readiness r-ready">Ready now</span></div>
+          <p class="field-label">Problem</p>
+          <p>Client asks for a discount, but the real issue is a timing problem -- cashflow pressure, a budget freeze, a year-end that's landed badly -- not a genuine view that the price is wrong.</p>
+          <p class="field-label">Solution</p>
+          <p>Solve the actual problem instead of the stated one: defer payment terms, or front-load the "discount" into the first few invoices, while holding full contract value across the term.</p>
+          <p class="field-label when">When to consider</p>
+          <p>Best when a client's ask is really about timing, not value -- worth a candid conversation before assuming it's a straight price objection.</p>
+          <p class="field-label margin">Margin &amp; commercial impact</p>
+          <p>Contract value is unchanged -- this is a working-capital trade, not a margin concession. Just confirm Slalom's own cash position can absorb the deferral before offering it.</p>
+        </div>
+
+        <div class="card" id="c-pod" data-score="7" data-tags="standard-ask,low-commitment,price-certainty">
+          <div class="card-top"><h4>Fixed-capacity POD</h4><span class="creativity-meter"></span></div>
+          <div class="badge-row"><span class="readiness r-ready">Ready now</span></div>
+          <p class="field-label">Problem</p>
+          <p>Client wants lower rates and is running a steady stream of change initiatives, each currently scoped, contracted and staffed as its own little project.</p>
+          <p class="field-label">Solution</p>
+          <p>Replace project-by-project contracting with a fixed-capacity POD at a blended rate. The rate reduction is funded by discounting bench time, locking rates for twelve months, and sharing the contracting efficiency -- not by cutting margin. Onboarding and offboarding costs fall, institutional knowledge stays put, and both sides can plan further ahead.</p>
+          <p class="field-label when">When to consider</p>
+          <p>Best where a client has a continuous portfolio of change work rather than discrete projects, and where the churn of repeated scoping and contracting is itself a real cost. It's the pragmatic, available-today alternative to a full subscription model.</p>
+          <p class="field-label margin">Margin &amp; commercial impact</p>
+          <p>Proven to hold healthy margin while cutting the client's blended rate -- the discount comes from efficiency, not concession. Watch utilisation against committed capacity, since the POD only pays off if it stays genuinely full.</p>
+          <div class="example-row"><span class="example-chip">Example: Madrigal</span></div>
+        </div>
+
+        <div class="card" id="c-bonus" data-score="7" data-tags="procurement-cap,standard-ask">
+          <div class="card-top"><h4>The discretionary bonus</h4><span class="creativity-meter"></span></div>
+          <div class="badge-row"><span class="readiness r-ready">Ready now</span></div>
+          <p class="field-label">Problem</p>
+          <p>Client's procurement has a fixed discount % or price cap in mind -- or the business needs to land under a threshold to avoid triggering a full procurement process.</p>
+          <p class="field-label">Solution</p>
+          <p>Meet their rate, but agree a discretionary 0-3% "bonus," payable entirely at the client's discretion each quarter. In practice it's paid roughly nine times out of ten -- the client gets the number they needed to close, and Slalom protects the margin that would otherwise have been set away for good.</p>
+          <p class="field-label when">When to consider</p>
+          <p>Best when procurement needs to hit a specific discount % or price cap -- or the business needs to land under an approval threshold -- and the relationship is strong enough that a discretionary payment is genuinely likely to be honoured.</p>
+          <p class="field-label margin">Margin &amp; commercial impact</p>
+          <p>Protects margin far better than a straight discount -- paid roughly nine times out of ten in practice -- but forecast it as at-risk revenue, not committed revenue, until it's actually paid.</p>
+          <div class="example-row"><span class="example-chip">Example: AbbVie</span></div>
+        </div>
+
+        <div class="card" id="c-msow" data-score="7" data-tags="slow-contracting,procurement-cap,low-commitment">
+          <div class="card-top"><h4>Master SOW &amp; drawdown</h4><span class="creativity-meter"></span></div>
+          <div class="badge-row"><span class="readiness r-ready">Ready now</span></div>
+          <p class="field-label">Problem</p>
+          <p>Every engagement gets scoped, re-negotiated and re-approved from scratch. Contracting takes months, rates get re-litigated each time, and value leaks at every step before anyone does any work.</p>
+          <p class="field-label">Solution</p>
+          <p>Put a single pre-agreed Master SOW framework in place and draw down against it. One rate negotiation up front instead of one per engagement, days to start work instead of weeks, and far fewer approval steps. Value gets captured through upfront MSOW discounting, tiered drawdown credits, reduced procurement and legal rework, or extra delivery capacity at the same spend.</p>
+          <p class="field-label when">When to consider</p>
+          <p>Best on accounts already spending at real scale where contracting friction is the actual bottleneck. A six-month pilot with an agreed value-capture mechanism is the natural way in before scaling it across the account.</p>
+          <p class="field-label margin">Margin &amp; commercial impact</p>
+          <p>Converts negotiation friction into delivery velocity -- the same spend buys more capability once contracting overhead is amortised across the portfolio. Agree the value-capture mechanism explicitly up front, or the efficiency simply becomes an unpriced client gain.</p>
+        </div>
+
+        <div class="card" id="c-coinvest" data-score="7" data-tags="ip-reuse">
+          <div class="card-top"><h4>Asset co-investment</h4><span class="creativity-meter"></span></div>
+          <div class="badge-row"><span class="readiness r-signoff">Leadership sign-off</span><span class="official-tag">Official: Royalty</span></div>
+          <p class="field-label">Problem</p>
+          <p>Client wants a lower rate; Slalom wants to be more than a staff-aug line item on their books.</p>
+          <p class="field-label">Solution</p>
+          <p>Co-fund a reusable accelerator or asset as part of the engagement in exchange for a lower blended rate -- while Slalom retains reuse or resale rights across other clients. The discount is funded by IP, not margin.</p>
+          <p class="field-label when">When to consider</p>
+          <p>Best when there's a genuine reusable asset worth building and a credible path to reuse or resell it elsewhere. Slalom is already investing to develop, test and maintain AI tools and accelerators, so pricing that investment into deals is how it gets recouped rather than quietly absorbed.</p>
+          <p class="field-label margin">Margin &amp; commercial impact</p>
+          <p>Margin is invested up front against a longer-term return. Track the payback across the whole portfolio of accounts it gets reused on, not this one deal in isolation. Anything touching IP ownership or resale needs legal and leadership involved early.</p>
+        </div>
+
+        <div class="card" id="c-satisfaction" data-score="7" data-tags="relationship-trust,outcome-risk">
+          <div class="card-top"><h4>Satisfaction-based compensation</h4><span class="creativity-meter"></span></div>
+          <div class="badge-row"><span class="readiness r-signoff">Leadership sign-off</span><span class="official-tag">Official: Satisfaction Based</span></div>
+          <p class="field-label">Problem</p>
+          <p>Client wants proof that Slalom will be held accountable for how the work actually lands, not just whether it was delivered.</p>
+          <p class="field-label">Solution</p>
+          <p>Adjust a slice of Slalom's compensation up or down against the client's measured satisfaction, assessed through a formal survey or feedback mechanism agreed in advance.</p>
+          <p class="field-label when">When to consider</p>
+          <p>Best where there's a close, high-trust stakeholder relationship and you can make the questionnaire as objective as possible -- did we hit the timeline, did we meet 90% of SLAs -- rather than leaving it to sentiment. Ask early who signs it off if your main sponsor moves on.</p>
+          <p class="field-label margin">Margin &amp; commercial impact</p>
+          <p>Keep the at-risk portion small: the maximum possible loss should still leave the engagement above roughly 40-45% margin, and it should never create a loss position. It adds relatively little margin value on its own, so use it as a trust signal alongside a stronger construct rather than as the main event.</p>
+        </div>
+
+        <div class="card" id="c-landexpand" data-score="8" data-tags="scope-creep,stickiness">
+          <div class="card-top"><h4>Land-and-expand insurance</h4><span class="creativity-meter"></span></div>
+          <div class="badge-row"><span class="readiness r-ready">Ready now</span></div>
+          <p class="field-label">Problem</p>
+          <p>Client is openly nervous about Slalom pushing scope or upselling aggressively once we're in the door -- often after a bad experience with another vendor.</p>
+          <p class="field-label">Solution</p>
+          <p>Reassure them structurally: build heavily discounted rates specifically into any Slalom-led cross-sell or up-sell, while holding full rate on the core scope and on any additional work the client comes to us and asks for. It removes Slalom's incentive to oversell, without discounting anything they actually value.</p>
+          <p class="field-label when">When to consider</p>
+          <p>Best early in a new relationship where trust is still being built, or after a client has been burned by scope creep from a previous vendor.</p>
+          <p class="field-label margin">Margin &amp; commercial impact</p>
+          <p>No impact on current scope margin at all -- it only discounts hypothetical future work that Slalom would otherwise have to fight hard to win anyway.</p>
+        </div>
+
+        <div class="card" id="c-discovery" data-score="8" data-tags="discovery-cost,unsolvable">
+          <div class="card-top"><h4>Discovery at risk, credited forward</h4><span class="creativity-meter"></span></div>
+          <div class="badge-row"><span class="readiness r-ready">Ready now</span></div>
+          <p class="field-label">Problem</p>
+          <p>"Your discovery price is too high" -- or, "why would we pay you to learn how our business operates?"</p>
+          <p class="field-label">Solution</p>
+          <p>Deliver discovery at risk -- free, or at Slalom's internal cost -- and issue it as a credit note against the full implementation phase that follows. It's an effective discount of up to 100% on phase one, funded entirely by the deal it unlocks.</p>
+          <p class="field-label when">When to consider</p>
+          <p>Best when the discovery or diagnostic phase is a genuine, unavoidable gate before a much larger implementation, and you're confident enough in the follow-on to treat the cost as an investment rather than a favour.</p>
+          <p class="field-label margin">Margin &amp; commercial impact</p>
+          <p>Full margin loss on discovery unless the implementation is signed -- track it as an at-risk investment on the account P&amp;L, not a sunk cost, and agree a clear go/no-go point before starting. If the client can terminate early, make sure a termination fee protects the investment.</p>
+          <div class="example-row"><span class="example-chip">Example: Liverpool FC</span><span class="example-chip">Example: AstraZeneca</span></div>
+        </div>
+
+        <div class="card" id="c-outcome" data-score="9" data-tags="outcome-risk,measurable-gain,unsolvable,hard-deadline">
+          <div class="card-top"><h4>Gain share (outcome-linked)</h4><span class="creativity-meter"></span></div>
+          <div class="badge-row"><span class="readiness r-signoff">Leadership sign-off</span><span class="official-tag">Official: Gain Share</span></div>
+          <p class="field-label">Problem</p>
+          <p>Client wants Slalom to have real skin in the game on business results -- not just on hitting delivery milestones.</p>
+          <p class="field-label">Solution</p>
+          <p>Share in the financial gains the client actually realises -- cost reductions, productivity improvements, accelerated delivery -- typically at a pre-agreed multiple of the measurable improvement. Keep it distinct from fees at risk: that protects the client from Slalom underdelivering, whereas this rewards Slalom for the client overachieving.</p>
+          <p class="field-label when">When to consider</p>
+          <p>Strongest where a problem has genuinely defeated other vendors, where a hard deadline carries real financial consequences, or where a quantifiable cost or output improvement is available against a clear baseline. Outcomes should be objective and measured weekly or monthly for clean sign-off and invoicing.</p>
+          <p class="field-label margin">Margin &amp; commercial impact</p>
+          <p>Higher risk should mean higher margin -- price this at a premium, and always as a fixed fee rather than T&amp;M. Expect slow benefit realisation, real setup effort in contracting and systems, and disagreements over the share split if the baseline isn't nailed down first.</p>
+        </div>
+
+        <div class="card" id="c-revshare" data-score="9" data-tags="revenue-growth,outcome-risk,measurable-gain">
+          <div class="card-top"><h4>Revenue share</h4><span class="creativity-meter"></span></div>
+          <div class="badge-row"><span class="readiness r-signoff">Leadership sign-off</span><span class="official-tag">Official: Revenue Share</span></div>
+          <p class="field-label">Problem</p>
+          <p>The work will directly drive new client revenue, and the client would rather pay out of that upside than fund the whole build from budget they don't have.</p>
+          <p class="field-label">Solution</p>
+          <p>Slalom takes a share of the incremental revenue generated as a direct result of the work. In practice this often means Slalom funds part of the project cost up front and earns it back at an agreed multiple over a set payback window -- with the multiple sliding down if Slalom is repaid early, and up if repayment is delayed.</p>
+          <p class="field-label when">When to consider</p>
+          <p>Best when success is tied to genuine revenue growth, the client's revenue projection is credible and shared, and both executive teams are aligned behind a single vision of success. Do the value quantification properly up front -- it's the whole basis of the deal.</p>
+          <p class="field-label margin">Margin &amp; commercial impact</p>
+          <p>Higher margin potential than traditional T&amp;M or fixed fee, but slow to realise and demanding to set up in contracting and internal systems. Watch working capital across the payback period, and secure a single PO and a letter of intent for the sole-sourced SOW before starting.</p>
+          <div class="example-row"><span class="example-chip">Example: Eastman</span><span class="example-chip">Example: NCLH</span></div>
+        </div>
+
+        <div class="card" id="c-glidepath" data-score="10" data-tags="stickiness,outcome-risk,measurable-gain">
+          <div class="card-top"><h4>The Glidepath</h4><span class="creativity-meter"></span></div>
+          <div class="badge-row"><span class="readiness r-signoff">Leadership sign-off</span></div>
+          <p class="field-label">Problem</p>
+          <p>Client is nervous about Slalom "landing and expanding," or staying artificially sticky -- and a straight volume discount or price-to-win line item feels too obvious to sign off.</p>
+          <p class="field-label">Solution</p>
+          <p>Position the investment as AI-driven efficiency Slalom expects to realise over time -- e.g. ten resources priced as seven, on the basis that AI-accelerated ways of working close the gap. Go further with a gainshare: for every additional resource Slalom rolls off through automation, Slalom keeps 70% of the freed fees and the client keeps 30% (on fixed-price deals).</p>
+          <p class="field-label when">When to consider</p>
+          <p>Best on large, multi-year, managed-service-style engagements where AI or automation efficiency is real and measurable. Be honest about AI maturity: outcome-weighted structures like this only hold up once the solution is proven, the outcomes are controllable and the data is good. Early-stage AI work belongs on a fixed fee with conservative assumptions instead.</p>
+          <p class="field-label margin">Margin &amp; commercial impact</p>
+          <p>Margin only improves if the efficiency gains are real and tracked. Agree up front exactly how "resource rolled off" is measured, or this quietly becomes a discount wearing an AI badge.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="levers-section" id="levers">
+  <div class="wrap section">
+    <div class="section-head">
+      <div class="kicker">Before You Concede</div>
+      <h2>The lever ladder.</h2>
+      <p>When a client pushes on price, margin is only one of the levers available -- and it should be the last one you pull. Work down this list first: each of these changes what the client is actually buying, so the price can move without the margin moving.</p>
+    </div>
+
+    <div class="lever">
+      <div class="lever-name"><span class="lever-num">1</span>Client budget</div>
+      <div class="lever-scale"><span class="lever-end low">Restricted budget</span><span class="lever-bar"></span><span class="lever-end high">Open budget</span></div>
+    </div>
+    <div class="lever">
+      <div class="lever-name"><span class="lever-num">2</span>Scope &amp; time</div>
+      <div class="lever-scale"><span class="lever-end low">Less scope / time</span><span class="lever-bar"></span><span class="lever-end high">More scope / time</span></div>
+    </div>
+    <div class="lever">
+      <div class="lever-name"><span class="lever-num">3</span>Deal structure</div>
+      <div class="lever-scale"><span class="lever-end low">Commoditised T&amp;M</span><span class="lever-bar"></span><span class="lever-end high">Fixed capacity / fee</span></div>
+    </div>
+    <div class="lever">
+      <div class="lever-name"><span class="lever-num">4</span>Differentiation</div>
+      <div class="lever-scale"><span class="lever-end low">Commoditised</span><span class="lever-bar"></span><span class="lever-end high">Unique expertise</span></div>
+    </div>
+    <div class="lever">
+      <div class="lever-name"><span class="lever-num">5</span>Commitment</div>
+      <div class="lever-scale"><span class="lever-end low">No commitment</span><span class="lever-bar"></span><span class="lever-end high">Commit to future spend</span></div>
+    </div>
+    <div class="lever">
+      <div class="lever-name"><span class="lever-num">6</span>Level &amp; staffing mix</div>
+      <div class="lever-scale"><span class="lever-end low">Level down</span><span class="lever-bar"></span><span class="lever-end high">Level up</span></div>
+    </div>
+    <div class="lever">
+      <div class="lever-name"><span class="lever-num">7</span>Staffing location mix</div>
+      <div class="lever-scale"><span class="lever-end low">Allshore</span><span class="lever-bar"></span><span class="lever-end high">Onshore</span></div>
+    </div>
+
+    <div class="lever last-resort">
+      <div class="lever-name"><span class="lever-num">8</span>Margin concession</div>
+      <p class="lever-note"><strong>Last resort.</strong> Every lever above changes what the client receives, so the price can move honestly. A margin concession changes nothing except what Slalom keeps -- and given the arithmetic at the top of this page, it costs far more than the headline percentage suggests.</p>
+    </div>
+  </div>
+</section>
+
+<section class="proof-section" id="proof">
+  <div class="wrap section">
+    <div class="section-head">
+      <div class="kicker">It Works</div>
+      <h2>Proof points.</h2>
+      <p>These aren't theoretical constructs. Each of these has been structured, signed and delivered -- useful both as internal precedent and as evidence for a client who wants to know whether anyone has actually done this before.</p>
+    </div>
+    <div class="proof-grid">
+
+      <div class="proof-card">
+        <h3 class="proof-client">Madrigal</h3>
+        <div class="proof-model">Fixed-capacity POD</div>
+        <p>Moved from scoping and contracting every change initiative as its own project to a fixed-capacity change management POD. The rate reduction came from discounting bench time, locking rates for twelve months and sharing contracting efficiency -- rather than from margin.</p>
+        <div class="proof-metrics">
+          <div class="proof-metric"><div class="pm-val">$267 &rarr; $237</div><div class="pm-lbl">Blended rate</div></div>
+          <div class="proof-metric"><div class="pm-val">&lt;$1M &rarr; $5M</div><div class="pm-lbl">Revenue, 2024 to 2025</div></div>
+          <div class="proof-metric"><div class="pm-val">50%</div><div class="pm-lbl">YTD engagement margin</div></div>
+        </div>
+      </div>
+
+      <div class="proof-card">
+        <h3 class="proof-client">Eastman</h3>
+        <div class="proof-model">Revenue share</div>
+        <p>A $4M standard-fee project restructured as a revenue share: the client funds $3M up front, Slalom invests $1M, and Slalom earns back at a 2x multiplier over an 18-month payback window. A second variant added a $100K innovation budget at a 2.25x multiplier. The multiplier slides down if Slalom is repaid early, and up if repayment is delayed.</p>
+        <div class="proof-metrics">
+          <div class="proof-metric"><div class="pm-val">$1M</div><div class="pm-lbl">Slalom up-front investment</div></div>
+          <div class="proof-metric"><div class="pm-val">2x &ndash; 2.25x</div><div class="pm-lbl">Revenue share multiplier</div></div>
+          <div class="proof-metric"><div class="pm-val">18 months</div><div class="pm-lbl">Payback period</div></div>
+        </div>
+      </div>
+
+      <div class="proof-card">
+        <h3 class="proof-client">Insulet</h3>
+        <div class="proof-model">Fees at risk / satisfaction based</div>
+        <p>On a $28.8M, 15-month programme, roughly $2.05M of fees were placed at risk against weighted criteria -- schedule, budget and subjective measures -- measured within five days of go-live and reconciled against the final invoice.</p>
+        <div class="proof-metrics">
+          <div class="proof-metric"><div class="pm-val">~10%</div><div class="pm-lbl">Fees at risk</div></div>
+          <div class="proof-metric"><div class="pm-val">30 / 50 / 20</div><div class="pm-lbl">Schedule / budget / subjective</div></div>
+          <div class="proof-metric"><div class="pm-val">5 days</div><div class="pm-lbl">Post go-live measurement</div></div>
+        </div>
+      </div>
+
+      <div class="proof-card">
+        <h3 class="proof-client">NCLH</h3>
+        <div class="proof-model">Value quantification for revenue share</div>
+        <p>Before proposing a value-based structure, the upside was modelled in detail -- customer lifetime value by brand, specific upgrade and upsell volumes, and net yield per guest -- to establish a credible, shared basis for what the work was actually worth.</p>
+        <div class="proof-metrics">
+          <div class="proof-metric"><div class="pm-val">$155.5M</div><div class="pm-lbl">Projected annual revenue lift</div></div>
+          <div class="proof-metric"><div class="pm-val">2.5%</div><div class="pm-lbl">Lift to net revenues</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="pitfalls-section" id="pitfalls">
+  <div class="wrap section">
+    <div class="section-head">
+      <div class="kicker">Handle With Care</div>
+      <h2>Pitfalls &amp; things to avoid</h2>
+      <p>Most of these constructs go wrong the same way: something meant to be occasional or conditional quietly becomes permanent and expected. A few common traps worth checking for before signing.</p>
+    </div>
+    <div class="pitfall-grid">
+      <div class="pitfall-card">
+        <span class="flag">!</span>
+        <h4>Rebates with no sunset clause</h4>
+        <p>A discretionary bonus paid quarter after quarter stops feeling discretionary and starts feeling contractual. Clients budget for it, procurement cites it at the next renewal, and removing it reads as a price increase even though it was never guaranteed. Always attach a review point.</p>
+      </div>
+      <div class="pitfall-card">
+        <span class="flag">!</span>
+        <h4>Volume discounts with no real exit</h4>
+        <p>If the break clause is decorative rather than genuinely exercisable, Slalom ends up delivering at a discounted rate long after volumes have dropped. Track utilisation against the committed volume, and mean the break clause when you write it.</p>
+      </div>
+      <div class="pitfall-card">
+        <span class="flag">!</span>
+        <h4>Discounting without an "effective" narrative</h4>
+        <p>A straight percentage off the rate card sets a new, lower anchor for every future renewal and every future deal that references it. Procurement remembers the number, not the context behind it.</p>
+      </div>
+      <div class="pitfall-card">
+        <span class="flag">!</span>
+        <h4>Credit notes without margin visibility</h4>
+        <p>Free discovery or fees-at-risk work only makes sense if someone is actually tracking the cost against a clear payback point. Without that, it quietly becomes a write-off nobody signed up for.</p>
+      </div>
+      <div class="pitfall-card">
+        <span class="flag">!</span>
+        <h4>Outcome risk priced on T&amp;M</h4>
+        <p>Outcome-driven models are inherently riskier and should carry a premium inside a fixed-fee structure. Carrying that risk on T&amp;M means Slalom takes the downside without ever pricing in the upside.</p>
+      </div>
+      <div class="pitfall-card">
+        <span class="flag">!</span>
+        <h4>Subjective success criteria</h4>
+        <p>If the client says we missed it and we say we hit it, there's no mechanism to resolve it. Make satisfaction and outcome criteria as objective as possible -- did we meet the timeline, did we hit 90% of SLAs -- and agree who adjudicates before you sign.</p>
+      </div>
+      <div class="pitfall-card">
+        <span class="flag">!</span>
+        <h4>Gainshare with no measurement agreement</h4>
+        <p>If "efficiency gained" isn't defined and agreed with the client up front, these become disputed at exactly the moment they're supposed to start paying off. Set the baseline, and agree in advance whether and when it can be adjusted.</p>
+      </div>
+      <div class="pitfall-card">
+        <span class="flag">!</span>
+        <h4>Land-and-expand insurance applied too broadly</h4>
+        <p>If the discount accidentally covers work the client asked for -- not just Slalom-led upsell -- it erodes margin on core scope for no reason. Scope the clause tightly.</p>
+      </div>
+    </div>
+
+    <div class="checklist">
+      <h3>Before you sign: the legal &amp; risk checklist</h3>
+      <p class="intro">For any alternative pricing structure, involve Slalom Legal early and often. In practice it's rarely our legal team that blocks these -- it's the client's. Three questions decide whether a clever structure survives contact with a contract.</p>
+      <div class="check-grid">
+        <div class="check-block">
+          <h5>Measurement &amp; baselining</h5>
+          <ul>
+            <li>Can we measure every output that triggers an invoice?</li>
+            <li>How long is the measurement period? More frequent is better.</li>
+            <li>Do we need a baselining or pilot period first?</li>
+            <li>Can the baseline be adjusted later, and who agrees that?</li>
+            <li>Are we monitoring for seasonality in the data?</li>
+          </ul>
+        </div>
+        <div class="check-block">
+          <h5>Invoicing</h5>
+          <ul>
+            <li>Is there a client sign-off or acceptance period before we can invoice? Keep it as short as possible.</li>
+            <li>Is anything about that acceptance subjective?</li>
+            <li>Is there a single PO covering the compensation model?</li>
+            <li>How long before collection, and what does that do to working capital?</li>
+          </ul>
+        </div>
+        <div class="check-block">
+          <h5>Termination</h5>
+          <ul>
+            <li>Do we need a no-termination-for-convenience period?</li>
+            <li>Is a termination fee required?</li>
+            <li>What deliverable payments or invested effort do we lose if the client exits early?</li>
+            <li>Are roles and responsibilities defined clearly enough on both sides to prove who caused what?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <h2>The test for whether it's actually creative</h2>
+    <p>Ask one question: has anyone's risk actually moved? If the client is simply paying less, it's a discount -- however it's dressed. If Slalom and the client are both exposed to the same outcome, in either direction, it's a creative commercial.</p>
+    <p>This is meant to be a living list. New models slot straight into the situation filter above by tagging the client scenario they answer, and several can be combined on the same deal -- a Master SOW alongside a fixed-capacity POD, or a glidepath alongside land-and-expand insurance.</p>
+    <div class="helpbox">
+      <h4>Who to bring in</h4>
+      <p><strong>Commercial Strategy</strong> &mdash; for pricing structure, deal constructs, discount frameworks and procurement engagement. Katie Jenner leads Life Sciences &amp; Healthcare; Craig Winkels leads the team globally.</p>
+      <p><strong>Pursuit Support</strong> &mdash; end-to-end RFx support is available for pursuits above $3M in the US or $2M internationally; commercial information support below that.</p>
+      <p><strong>Legal and Finance</strong> &mdash; early, for anything with fees at risk, revenue or gain share, or IP reuse. Complex structures carry real financial risk for Slalom, which is why Finance needs to be in the room rather than informed afterwards.</p>
+    </div>
+    <span class="rule">Slalom &middot; Commercial Creativity &middot; Life Sciences &amp; Healthcare deal shaping reference. Aligned to the Commercial Strategy alternative pricing methodology.</span>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;width:100%;flex-wrap:wrap;gap:10px;">
+    <svg class="logo-mark" viewBox="0 0 216 56.1" xmlns="http://www.w3.org/2000/svg" aria-label="Slalom">
+      <g fill="currentColor">
+        <path d="M39.2 50.7C39.2 53.1 41.1 55 43.5 55L49.8 55 49.8 0 39.2 0 39.2 50.7Z"/>
+        <path d="M82.5 19.9C79.9 16.7 76.1 14.5 70.7 14.5 59.8 14.5 51.6 23.4 51.6 35.3 51.6 47.2 59.8 56.1 70.7 56.1 76.1 56.1 79.9 53.9 82.5 50.7L82.5 50.8C82.5 53.2 84.4 55.1 86.8 55.1L92.9 55.1 92.9 15.6 82.4 15.6 82.5 19.9 82.5 19.9ZM72.6 46.2C66.4 46.2 62.4 41.3 62.4 35.3 62.4 29.3 66.4 24.4 72.6 24.4 78.7 24.4 82.8 29 82.8 35.3 82.8 41.5 78.7 46.2 72.6 46.2Z"/>
+        <path d="M95.6 50.7C95.6 53.1 97.5 55 99.9 55L106.2 55 106.2 0 95.6 0 95.6 50.7 95.6 50.7Z"/>
+        <path d="M129.2 14.5C116.9 14.5 107.9 23.4 107.9 35.3 107.9 47.2 116.9 56.1 129.2 56.1 141.5 56.1 150.6 47.2 150.6 35.3 150.6 23.4 141.5 14.5 129.2 14.5ZM129.2 46.2C123.2 46.2 118.7 41.7 118.7 35.3 118.7 28.9 123.2 24.4 129.2 24.4 135.2 24.4 139.7 28.9 139.7 35.3 139.7 41.7 135.2 46.2 129.2 46.2Z"/>
+        <path d="M200.4 14.5C195.2 14.5 190 16.3 187 21.3 184.4 17.1 179.7 14.5 174 14.5 169.5 14.5 165.2 16 162.4 20.2L162.4 15.6 152 15.6 152 50.8C152 53.2 153.9 55.1 156.3 55.1L162.6 55.1 162.6 33.4C162.6 27.4 166.4 24.5 171 24.5 175.9 24.5 178.7 27.6 178.7 33.3L178.7 50.7C178.7 53.1 180.6 55 183 55L189.3 55 189.3 33.4C189.3 27.4 193.1 24.5 197.7 24.5 202.5 24.5 205.4 27.6 205.4 33.3L205.4 50.7C205.4 53.1 207.3 55 209.7 55L216 55 216 29.9C216 20.7 209.7 14.5 200.4 14.5Z"/>
+        <path d="M22.7 31 17.9 30.4C14.3 29.8 12 29.2 12.1 26.9 12.1 24.7 14 23.4 18 23.4 21.9 23.5 25.9 24.6 29 25.8 31.1 26.6 33.6 25.7 34.5 23.6L36.5 19.3C31.3 16.6 25.3 14.8 18.2 14.7 8.9 14.4 1.2 18.7 1 26.9 0.9 33.3 3.8 37.7 15.3 39.5L17.7 39.8C22.8 40.5 26.6 40.7 26.6 43.5 26.5 46.4 23.5 47.4 17.6 47.3 11.7 47.2 6.2 44.4 3.7 43L0 51.2C5.5 54.5 12.1 56.1 17.5 56.2 30.8 56.4 37.5 51.7 37.6 43.5 37.7 36.1 31.3 32 22.7 31Z"/>
+      </g>
+    </svg>
+    <span>Internal deal-shaping reference &middot; not for external distribution</span>
+  </div>
+</footer>
+
+<script>
+  var scenarios = [
+    { id:'c-tm', title:'T&M (Time & Materials)', score:1, type:'standard', tags:['undefined-scope'] },
+    { id:'c-discount', title:'Straight discounts', score:1, type:'standard', tags:['standard-ask'] },
+    { id:'c-allshore', title:'Allshore delivery', score:2, type:'standard', tags:['standard-ask'] },
+    { id:'c-fixed', title:'Fixed price', score:3, type:'standard', tags:['defined-scope'] },
+    { id:'c-feesatrisk', title:'Fees at risk', score:4, type:'standard', tags:['large-programme','outcome-risk'] },
+    { id:'c-volume', title:'Volume-based discounting', score:5, type:'standard', tags:['low-commitment','standard-ask'] },
+    { id:'c-effective', title:'Effective discount engineering', score:6, type:'creative', tags:['procurement-cap'] },
+    { id:'c-subscription', title:'Capacity subscription', score:6, type:'creative', tags:['low-commitment'] },
+    { id:'c-ratelock', title:'Rate-lock partnership pricing', score:6, type:'creative', tags:['price-certainty'] },
+    { id:'c-deferred', title:'Deferred payments / front-loaded discount', score:6, type:'creative', tags:['cashflow'] },
+    { id:'c-pod', title:'Fixed-capacity POD', score:7, type:'creative', tags:['standard-ask','low-commitment','price-certainty'] },
+    { id:'c-bonus', title:'The discretionary bonus', score:7, type:'creative', tags:['procurement-cap','standard-ask'] },
+    { id:'c-msow', title:'Master SOW & drawdown', score:7, type:'creative', tags:['slow-contracting','procurement-cap','low-commitment'] },
+    { id:'c-coinvest', title:'Asset co-investment', score:7, type:'creative', tags:['ip-reuse'] },
+    { id:'c-satisfaction', title:'Satisfaction-based compensation', score:7, type:'creative', tags:['relationship-trust','outcome-risk'] },
+    { id:'c-landexpand', title:'Land-and-expand insurance', score:8, type:'creative', tags:['scope-creep','stickiness'] },
+    { id:'c-discovery', title:'Discovery at risk, credited forward', score:8, type:'creative', tags:['discovery-cost','unsolvable'] },
+    { id:'c-outcome', title:'Gain share (outcome-linked)', score:9, type:'creative', tags:['outcome-risk','measurable-gain','unsolvable','hard-deadline'] },
+    { id:'c-revshare', title:'Revenue share', score:9, type:'creative', tags:['revenue-growth','outcome-risk','measurable-gain'] },
+    { id:'c-glidepath', title:'The Glidepath', score:10, type:'creative', tags:['stickiness','outcome-risk','measurable-gain'] }
+  ];
+
+  var byScore = {};
+  scenarios.forEach(function(s){
+    s._dotEls = [];
+    (byScore[s.score] = byScore[s.score] || []).push(s);
+  });
+  Object.keys(byScore).forEach(function(k){
+    var group = byScore[k];
+    group.forEach(function(s, i){
+      var spread = 2.1;
+      s._offset = (i - (group.length - 1) / 2) * spread;
+      s._row = i % 2;
+    });
+  });
+
+  function jumpTo(id){
+    var card = document.getElementById(id);
+    if (!card) return;
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    card.classList.add('flash');
+    setTimeout(function(){ card.classList.remove('flash'); }, 1400);
+  }
+
+  function buildTrack(container, small){
+    scenarios.forEach(function(s){
+      var dot = document.createElement('button');
+      dot.className = 'track-dot ' + s.type;
+      // Map scores 1-10 into an inset 4%-96% band. Without the inset, dots sharing
+      // the lowest score would both clamp to the same x and stack exactly.
+      var basePct = 4 + (s.score - 1) / 9 * 92;
+      dot.style.left = (basePct + s._offset) + '%';
+      dot.style.top = small ? (s._row ? '4px' : '-4.5px') : (s._row ? '18px' : '-8px');
+      dot.setAttribute('aria-label', s.title);
+      dot.tabIndex = 0;
+
+      var tip = document.createElement('span');
+      tip.className = 'dot-tip';
+      tip.textContent = s.title;
+      dot.appendChild(tip);
+
+      dot.addEventListener('click', function(){ jumpTo(s.id); });
+      s._dotEls.push(dot);
+      container.appendChild(dot);
+    });
+  }
+
+  buildTrack(document.getElementById('trackBar'), false);
+  buildTrack(document.getElementById('miniTrack'), true);
+
+  function tierFor(score){
+    if (score <= 2) return { level:1, label:'By the book' };
+    if (score <= 4) return { level:2, label:'Standard fare' };
+    if (score <= 6) return { level:3, label:'Warming up' };
+    if (score <= 8) return { level:4, label:'Now we\u2019re talking' };
+    return { level:5, label:'Chef\u2019s kiss' };
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('.card[data-score]'), function(card){
+    var meterEl = card.querySelector('.creativity-meter');
+    if (!meterEl) return;
+    var score = +card.dataset.score;
+    var tier = tierFor(score);
+
+    var bars = document.createElement('div');
+    bars.className = 'meter-bars';
+    var heights = [6, 9, 12, 15, 18];
+    for (var i = 0; i < 5; i++) {
+      var bar = document.createElement('span');
+      bar.className = 'bar' + (i < tier.level ? ' filled' : '');
+      bar.style.height = heights[i] + 'px';
+      bars.appendChild(bar);
+    }
+
+    var label = document.createElement('span');
+    label.className = 'meter-label';
+    label.textContent = tier.label;
+
+    meterEl.appendChild(bars);
+    meterEl.appendChild(label);
+    meterEl.setAttribute('aria-label', 'Creativity: ' + tier.label);
+  });
+
+  var chips = [
+    { slug:'standard-ask', label:'Simply a rate-card discount ask' },
+    { slug:'procurement-cap', label:'Procurement has a fixed discount % or price cap in mind' },
+    { slug:'cashflow', label:'Client has a cashflow problem, not a value problem' },
+    { slug:'slow-contracting', label:'Contracting / procurement cycle is too slow' },
+    { slug:'scope-creep', label:'Client is nervous about scope creep or being oversold to' },
+    { slug:'discovery-cost', label:'Discovery phase feels too expensive to justify' },
+    { slug:'price-certainty', label:'Client wants multi-year price certainty' },
+    { slug:'low-commitment', label:'Client wants lower cost without a long commitment' },
+    { slug:'outcome-risk', label:'Client wants Slalom to share risk on the outcome' },
+    { slug:'measurable-gain', label:'A quantifiable cost saving or output gain is available' },
+    { slug:'revenue-growth', label:'The work directly drives client revenue growth' },
+    { slug:'unsolvable', label:'Other vendors have tried to solve this and failed' },
+    { slug:'hard-deadline', label:'Hard deadline with real financial consequences' },
+    { slug:'relationship-trust', label:'Very close, high-trust stakeholder relationship' },
+    { slug:'stickiness', label:'Client\u2019s worried about becoming too reliant on Slalom' },
+    { slug:'ip-reuse', label:'An asset or IP we could build once and reuse' },
+    { slug:'undefined-scope', label:'Scope isn\u2019t well defined yet' },
+    { slug:'defined-scope', label:'Scope is well defined and stable' },
+    { slug:'large-programme', label:'Large, governance-heavy programme' }
+  ];
+
+  var chipRow = document.getElementById('chipRow');
+  var filterStatus = document.getElementById('filterStatus');
+  var allCards = Array.prototype.slice.call(document.querySelectorAll('.card[data-tags]'));
+  var activeTags = {};
+  var activeCount = 0;
+
+  var standardCards = allCards.filter(function(c){ return c.closest('.col-standard'); });
+  var creativeCards = allCards.filter(function(c){ return c.closest('.col-creative'); });
+  standardCards.forEach(function(c, i){ c.dataset.baseOrder = i; });
+  creativeCards.forEach(function(c, i){ c.dataset.baseOrder = i; });
+
+  chips.forEach(function(c){
+    var btn = document.createElement('button');
+    btn.className = 'situation-chip';
+    btn.textContent = c.label;
+    btn.dataset.slug = c.slug;
+    btn.addEventListener('click', function(){
+      if (activeTags[c.slug]) { delete activeTags[c.slug]; activeCount--; btn.classList.remove('active'); }
+      else { activeTags[c.slug] = true; activeCount++; btn.classList.add('active'); }
+      applyFilter();
+    });
+    chipRow.appendChild(btn);
+  });
+
+  function anyTagActive(tags){
+    for (var i = 0; i < tags.length; i++) {
+      if (activeTags[tags[i]]) return true;
+    }
+    return false;
+  }
+
+  function applyFilter(){
+    var visibleCount = 0;
+
+    allCards.forEach(function(card){
+      var tags = card.dataset.tags.split(',');
+      var match = activeCount === 0 || anyTagActive(tags);
+      var base = +card.dataset.baseOrder;
+      if (match) visibleCount++;
+      card.classList.toggle('filtered-out', !match);
+      card.style.order = match ? base : (base + 1000);
+    });
+
+    scenarios.forEach(function(s){
+      var match = activeCount === 0 || anyTagActive(s.tags);
+      s._dotEls.forEach(function(el){ el.classList.toggle('dimmed', !match); });
+    });
+
+    if (activeCount === 0) {
+      filterStatus.innerHTML = '';
+    } else {
+      filterStatus.innerHTML = 'Showing <strong>' + visibleCount + '</strong> of ' + allCards.length +
+        ' models matching your situation.';
+      var clearBtn = document.createElement('button');
+      clearBtn.className = 'clear-btn';
+      clearBtn.textContent = 'Clear filters';
+      clearBtn.addEventListener('click', function(){
+        activeTags = {};
+        activeCount = 0;
+        Array.prototype.forEach.call(chipRow.querySelectorAll('.situation-chip'), function(b){ b.classList.remove('active'); });
+        applyFilter();
+      });
+      filterStatus.appendChild(clearBtn);
+    }
+  }
+
+  var miniIndex = document.getElementById('miniIndex');
+  var navEl = document.querySelector('.nav');
+  miniIndex.style.top = navEl.offsetHeight + 'px';
+  window.addEventListener('resize', function(){ miniIndex.style.top = navEl.offsetHeight + 'px'; });
+
+  var indexPassed = false;
+  var inClosing = false;
+  function updateMiniVisibility(){
+    miniIndex.classList.toggle('visible', indexPassed && !inClosing);
+  }
+
+  new IntersectionObserver(function(entries){
+    var entry = entries[0];
+    indexPassed = !entry.isIntersecting && entry.boundingClientRect.top < 0;
+    updateMiniVisibility();
+  }, { threshold: 0 }).observe(document.getElementById('indexSection'));
+
+  new IntersectionObserver(function(entries){
+    inClosing = entries[0].isIntersecting;
+    updateMiniVisibility();
+  }, { threshold: 0.15 }).observe(document.querySelector('.closing'));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<title>Commercial Creativity | Slalom</title>
+<style>
+  :root{
+    --navy:#002FAF;
+    --cyan:#1BE1F2;
+    --coral:#FF4D5F;
+    --ink:#0A0A0A;
+    --grey:#666666;
+    --paper:#FFFFFF;
+    --font: 'Avenir Next LT Pro','Avenir Next','Avenir','Segoe UI',Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;min-height:100vh;
+    font-family:var(--font);
+    background:var(--navy);
+    color:var(--paper);
+    display:flex;align-items:center;justify-content:center;
+    padding:24px;
+    position:relative;
+    overflow:hidden;
+  }
+  body::after{
+    content:"";position:absolute;right:-10%;top:-30%;
+    width:640px;height:640px;border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, rgba(27,225,242,0.35), rgba(12,98,251,0) 70%);
+    pointer-events:none;
+  }
+  .card{
+    position:relative;z-index:1;
+    width:100%;max-width:380px;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.16);
+    border-radius:16px;
+    padding:36px 32px 32px;
+  }
+  .logo-mark{height:20px;width:auto;color:var(--paper);margin-bottom:28px;display:block;}
+  h1{font-size:20px;font-weight:800;margin:0 0 8px;letter-spacing:-0.01em;}
+  p.sub{font-size:14px;line-height:1.5;color:rgba(255,255,255,0.65);margin:0 0 24px;}
+  form{display:flex;flex-direction:column;gap:14px;}
+  label{font-size:11px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.6);}
+  input[type="password"]{
+    font-family:var(--font);
+    background:rgba(255,255,255,0.08);
+    border:1.5px solid rgba(255,255,255,0.2);
+    border-radius:10px;
+    padding:12px 14px;
+    font-size:15px;color:var(--paper);
+    outline:none;
+    transition:border-color .15s ease;
+  }
+  input[type="password"]:focus{border-color:var(--cyan);}
+  input[type="password"]::placeholder{color:rgba(255,255,255,0.35);}
+  button{
+    font-family:var(--font);
+    font-size:14.5px;font-weight:800;
+    background:var(--cyan);color:var(--ink);
+    border:none;border-radius:10px;
+    padding:12px 14px;margin-top:6px;
+    cursor:pointer;
+    transition:opacity .15s ease;
+  }
+  button:hover{opacity:0.88;}
+  .error{
+    display:none;
+    font-size:13px;font-weight:700;color:#FFB3BA;
+    background:rgba(255,77,95,0.14);
+    border:1px solid rgba(255,77,95,0.3);
+    border-radius:8px;
+    padding:10px 12px;
+    margin-bottom:2px;
+  }
+  .error.show{display:block;}
+</style>
+</head>
+<body>
+  <div class="card">
+    <svg class="logo-mark" viewBox="0 0 216 56.1" xmlns="http://www.w3.org/2000/svg" aria-label="Slalom">
+      <g fill="currentColor">
+        <path d="M39.2 50.7C39.2 53.1 41.1 55 43.5 55L49.8 55 49.8 0 39.2 0 39.2 50.7Z"/>
+        <path d="M82.5 19.9C79.9 16.7 76.1 14.5 70.7 14.5 59.8 14.5 51.6 23.4 51.6 35.3 51.6 47.2 59.8 56.1 70.7 56.1 76.1 56.1 79.9 53.9 82.5 50.7L82.5 50.8C82.5 53.2 84.4 55.1 86.8 55.1L92.9 55.1 92.9 15.6 82.4 15.6 82.5 19.9 82.5 19.9ZM72.6 46.2C66.4 46.2 62.4 41.3 62.4 35.3 62.4 29.3 66.4 24.4 72.6 24.4 78.7 24.4 82.8 29 82.8 35.3 82.8 41.5 78.7 46.2 72.6 46.2Z"/>
+        <path d="M95.6 50.7C95.6 53.1 97.5 55 99.9 55L106.2 55 106.2 0 95.6 0 95.6 50.7 95.6 50.7Z"/>
+        <path d="M129.2 14.5C116.9 14.5 107.9 23.4 107.9 35.3 107.9 47.2 116.9 56.1 129.2 56.1 141.5 56.1 150.6 47.2 150.6 35.3 150.6 23.4 141.5 14.5 129.2 14.5ZM129.2 46.2C123.2 46.2 118.7 41.7 118.7 35.3 118.7 28.9 123.2 24.4 129.2 24.4 135.2 24.4 139.7 28.9 139.7 35.3 139.7 41.7 135.2 46.2 129.2 46.2Z"/>
+        <path d="M200.4 14.5C195.2 14.5 190 16.3 187 21.3 184.4 17.1 179.7 14.5 174 14.5 169.5 14.5 165.2 16 162.4 20.2L162.4 15.6 152 15.6 152 50.8C152 53.2 153.9 55.1 156.3 55.1L162.6 55.1 162.6 33.4C162.6 27.4 166.4 24.5 171 24.5 175.9 24.5 178.7 27.6 178.7 33.3L178.7 50.7C178.7 53.1 180.6 55 183 55L189.3 55 189.3 33.4C189.3 27.4 193.1 24.5 197.7 24.5 202.5 24.5 205.4 27.6 205.4 33.3L205.4 50.7C205.4 53.1 207.3 55 209.7 55L216 55 216 29.9C216 20.7 209.7 14.5 200.4 14.5Z"/>
+        <path d="M22.7 31 17.9 30.4C14.3 29.8 12 29.2 12.1 26.9 12.1 24.7 14 23.4 18 23.4 21.9 23.5 25.9 24.6 29 25.8 31.1 26.6 33.6 25.7 34.5 23.6L36.5 19.3C31.3 16.6 25.3 14.8 18.2 14.7 8.9 14.4 1.2 18.7 1 26.9 0.9 33.3 3.8 37.7 15.3 39.5L17.7 39.8C22.8 40.5 26.6 40.7 26.6 43.5 26.5 46.4 23.5 47.4 17.6 47.3 11.7 47.2 6.2 44.4 3.7 43L0 51.2C5.5 54.5 12.1 56.1 17.5 56.2 30.8 56.4 37.5 51.7 37.6 43.5 37.7 36.1 31.3 32 22.7 31Z"/>
+      </g>
+    </svg>
+    <h1>Commercial Creativity</h1>
+    <p class="sub">Internal deal-shaping reference. Enter the password to continue.</p>
+    <div class="error" id="errorBox">Incorrect password. Try again.</div>
+    <form method="POST" action="/login" id="loginForm">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter password" autofocus required>
+      <button type="submit">Enter</button>
+    </form>
+  </div>
+  <script>
+    // Show the error state if we were bounced back here after a wrong attempt.
+    if (new URLSearchParams(window.location.search).get('error') === '1') {
+      document.getElementById('errorBox').classList.add('show');
+    }
+  </script>
+</body>
+</html>
