@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
 <title>Commercial Creativity | Slalom</title>
 <style>
   :root{
@@ -290,31 +289,89 @@
     padding:4px 10px;border-radius:20px;
   }
 
-  /* ---------- LEVER LADDER ---------- */
+  /* ---------- TRADE LEVERS (interactive) ---------- */
   .levers-section{border-top:1px solid var(--line);}
-  .lever{
-    display:grid;grid-template-columns:210px 1fr;gap:24px;align-items:center;
-    padding:16px 0;border-bottom:1px solid var(--line);
+  .lever-layout{display:grid;grid-template-columns:1fr 370px;gap:34px;align-items:start;}
+  @media (max-width:940px){.lever-layout{grid-template-columns:1fr;}}
+
+  .lever-card{
+    display:grid;grid-template-columns:30px 1fr 26px;gap:16px;align-items:start;
+    width:100%;text-align:left;font-family:var(--font);
+    background:var(--paper);border:1.5px solid var(--line);border-radius:14px;
+    padding:18px 20px;margin-bottom:12px;cursor:pointer;
+    transition:border-color .18s ease, background .18s ease, box-shadow .18s ease;
   }
-  @media (max-width:760px){.lever{grid-template-columns:1fr;gap:8px;}}
-  .lever-name{font-size:14.5px;font-weight:800;}
+  .lever-card:hover{border-color:#B9CCFF;}
+  .lever-card.selected{border-color:var(--navy);background:#F7F9FF;box-shadow:0 0 0 3px rgba(0,47,175,0.07);}
   .lever-num{
     display:inline-flex;align-items:center;justify-content:center;
-    width:22px;height:22px;border-radius:50%;background:#EEF3FF;color:var(--navy);
-    font-size:11px;font-weight:800;margin-right:10px;
+    width:26px;height:26px;border-radius:50%;background:#EEF3FF;color:var(--navy);
+    font-size:11.5px;font-weight:800;margin-top:1px;
   }
-  .lever-scale{display:flex;align-items:center;gap:14px;}
-  .lever-bar{
-    flex:1;height:5px;border-radius:3px;
-    background:linear-gradient(90deg,#CFE0FF 0%, var(--blue) 100%);
+  .lever-card.selected .lever-num{background:var(--navy);color:var(--paper);}
+  .lever-ask{font-size:15.5px;font-weight:800;margin:0 0 5px;letter-spacing:-0.005em;}
+  .lever-cat{
+    font-size:10.5px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;
+    color:var(--grey);margin-bottom:7px;
   }
-  .lever-end{font-size:12.5px;font-weight:700;color:var(--grey);white-space:nowrap;}
-  .lever-end.low{color:#C21F33;}
-  .lever-end.high{color:var(--navy);}
-  .lever.last-resort{background:var(--coral-tint);border-radius:14px;padding:20px 22px;margin-top:18px;border-bottom:none;}
-  .lever.last-resort .lever-name{color:#C21F33;}
-  .lever.last-resort .lever-num{background:var(--coral);color:var(--paper);}
-  .lever.last-resort .lever-note{font-size:14px;line-height:1.55;color:#8A1F2C;margin:0;}
+  .lever-detail{font-size:14px;line-height:1.55;color:#2A2A2A;margin:0;}
+  .lever-check{
+    width:22px;height:22px;border-radius:6px;border:1.5px solid var(--line);
+    display:flex;align-items:center;justify-content:center;margin-top:3px;
+    font-size:13px;font-weight:800;color:transparent;transition:all .18s ease;
+  }
+  .lever-card.selected .lever-check{background:var(--navy);border-color:var(--navy);color:var(--paper);}
+
+  .lever-lastresort{
+    display:grid;grid-template-columns:30px 1fr;gap:16px;align-items:start;
+    background:var(--coral-tint);border:1.5px solid #FFD9DD;border-radius:14px;
+    padding:20px 22px;margin-top:20px;
+  }
+  .lever-lastresort .lever-num{background:var(--coral);color:var(--paper);}
+  .lever-lastresort h4{font-size:15.5px;font-weight:800;margin:0 0 6px;color:#C21F33;}
+  .lever-lastresort p{font-size:14px;line-height:1.55;color:#8A1F2C;margin:0;}
+
+  /* counter-offer panel */
+  .offer-panel{
+    position:sticky;top:132px;
+    background:var(--ink);color:var(--paper);
+    border-radius:18px;padding:26px 26px 24px;
+  }
+  @media (max-width:940px){.offer-panel{position:static;}}
+  .offer-panel h3{
+    font-size:12px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--cyan);margin:0 0 4px;
+  }
+  .offer-count{font-size:13px;color:rgba(255,255,255,0.55);margin:0 0 18px;font-weight:600;}
+  .offer-lead{font-size:15px;line-height:1.5;font-weight:700;margin:0 0 14px;}
+  .offer-list{list-style:none;margin:0 0 16px;padding:0;}
+  .offer-list li{
+    font-size:14px;line-height:1.5;color:rgba(255,255,255,0.85);
+    padding:10px 0 10px 20px;position:relative;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+  }
+  .offer-list li:last-child{border-bottom:none;}
+  .offer-list li::before{
+    content:"";position:absolute;left:0;top:17px;
+    width:7px;height:7px;border-radius:50%;background:var(--cyan);
+  }
+  .offer-close{
+    font-size:14px;line-height:1.55;color:rgba(255,255,255,0.7);
+    padding-top:14px;border-top:1px solid rgba(255,255,255,0.15);margin:0;
+  }
+  .offer-empty{
+    font-size:14.5px;line-height:1.6;color:rgba(255,255,255,0.65);margin:0;
+  }
+  .offer-empty strong{color:#FFB3BA;}
+  .offer-actions{display:flex;gap:10px;margin-top:18px;}
+  .offer-btn{
+    font-family:var(--font);font-size:12.5px;font-weight:800;
+    border-radius:8px;padding:9px 13px;cursor:pointer;border:none;
+    transition:opacity .15s ease;
+  }
+  .offer-btn:hover{opacity:0.85;}
+  .offer-btn.primary{background:var(--cyan);color:var(--ink);}
+  .offer-btn.ghost{background:rgba(255,255,255,0.1);color:var(--paper);}
 
   /* ---------- PROOF ---------- */
   .proof-section{background:#FAFAFA;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
@@ -400,7 +457,7 @@
     <div class="nav-links">
       <a href="#situation">Find by situation</a>
       <a href="#models">Models</a>
-      <a href="#levers">Lever ladder</a>
+      <a href="#levers">Trade levers</a>
       <a href="#proof">Proof</a>
       <a href="#pitfalls">Pitfalls</a>
     </div>
@@ -774,42 +831,27 @@
   <div class="wrap section">
     <div class="section-head">
       <div class="kicker">Before You Concede</div>
-      <h2>The lever ladder.</h2>
-      <p>When a client pushes on price, margin is only one of the levers available -- and it should be the last one you pull. Work down this list first: each of these changes what the client is actually buying, so the price can move without the margin moving.</p>
+      <h2>Trade, don't discount.</h2>
+      <p>Price should be an <em>output</em> of the deal's shape, not an input you negotiate in isolation. When a client pushes on price, there are seven things about the deal you can change so the number moves honestly -- margin is the eighth, and only after the rest are exhausted.</p>
+      <p><strong>Tick everything the client could realistically give you</strong>, and your counter-offer writes itself.</p>
     </div>
 
-    <div class="lever">
-      <div class="lever-name"><span class="lever-num">1</span>Client budget</div>
-      <div class="lever-scale"><span class="lever-end low">Restricted budget</span><span class="lever-bar"></span><span class="lever-end high">Open budget</span></div>
-    </div>
-    <div class="lever">
-      <div class="lever-name"><span class="lever-num">2</span>Scope &amp; time</div>
-      <div class="lever-scale"><span class="lever-end low">Less scope / time</span><span class="lever-bar"></span><span class="lever-end high">More scope / time</span></div>
-    </div>
-    <div class="lever">
-      <div class="lever-name"><span class="lever-num">3</span>Deal structure</div>
-      <div class="lever-scale"><span class="lever-end low">Commoditised T&amp;M</span><span class="lever-bar"></span><span class="lever-end high">Fixed capacity / fee</span></div>
-    </div>
-    <div class="lever">
-      <div class="lever-name"><span class="lever-num">4</span>Differentiation</div>
-      <div class="lever-scale"><span class="lever-end low">Commoditised</span><span class="lever-bar"></span><span class="lever-end high">Unique expertise</span></div>
-    </div>
-    <div class="lever">
-      <div class="lever-name"><span class="lever-num">5</span>Commitment</div>
-      <div class="lever-scale"><span class="lever-end low">No commitment</span><span class="lever-bar"></span><span class="lever-end high">Commit to future spend</span></div>
-    </div>
-    <div class="lever">
-      <div class="lever-name"><span class="lever-num">6</span>Level &amp; staffing mix</div>
-      <div class="lever-scale"><span class="lever-end low">Level down</span><span class="lever-bar"></span><span class="lever-end high">Level up</span></div>
-    </div>
-    <div class="lever">
-      <div class="lever-name"><span class="lever-num">7</span>Staffing location mix</div>
-      <div class="lever-scale"><span class="lever-end low">Allshore</span><span class="lever-bar"></span><span class="lever-end high">Onshore</span></div>
+    <div class="lever-layout">
+      <div class="lever-list" id="leverList"></div>
+
+      <aside class="offer-panel" id="offerPanel">
+        <h3>Your counter-offer</h3>
+        <p class="offer-count" id="offerCount">0 of 7 levers pulled</p>
+        <div id="offerBody"></div>
+      </aside>
     </div>
 
-    <div class="lever last-resort">
-      <div class="lever-name"><span class="lever-num">8</span>Margin concession</div>
-      <p class="lever-note"><strong>Last resort.</strong> Every lever above changes what the client receives, so the price can move honestly. A margin concession changes nothing except what Slalom keeps -- and given the arithmetic at the top of this page, it costs far more than the headline percentage suggests.</p>
+    <div class="lever-lastresort">
+      <span class="lever-num">8</span>
+      <div>
+        <h4>Margin concession</h4>
+        <p><strong>Last resort.</strong> Every lever above changes what the client actually receives, so the price can move honestly. A margin concession changes nothing except what Slalom keeps -- and given the arithmetic at the top of this page, it costs far more than the headline percentage suggests.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1180,6 +1222,136 @@
       filterStatus.appendChild(clearBtn);
     }
   }
+
+  // ---------- Trade levers: pick what the client can give, build the counter-offer ----------
+  var levers = [
+    {
+      n:1, cat:'Client budget',
+      ask:'Shape to the budget, don\u2019t discount down to it',
+      detail:'If the budget is genuinely capped, design a smaller or phased engagement that fits inside it. The client lands on their number and the rate never moves.',
+      trade:'We\u2019ll shape the engagement to fit inside your budget envelope, rather than discount our rate to reach it.'
+    },
+    {
+      n:2, cat:'Scope & time',
+      ask:'Take something out, or give us longer',
+      detail:'Removing a workstream lowers the price directly. Extending the timeline lets the same work run with a smaller concurrent team, which lowers it too.',
+      trade:'We\u2019ll reduce the price in exchange for removing a workstream from scope, or extending the delivery window.'
+    },
+    {
+      n:3, cat:'Deal structure',
+      ask:'Move off T&M to a fixed structure',
+      detail:'Commoditised T&M is the most expensive way for a client to buy. A fixed-capacity or fixed-fee structure lets us plan utilisation, and that efficiency funds a lower effective rate.',
+      trade:'We\u2019ll lower the effective rate in exchange for moving to a fixed-capacity or fixed-fee structure rather than time and materials.'
+    },
+    {
+      n:4, cat:'Differentiation',
+      ask:'Be honest about where you need our specialists',
+      detail:'Scarce, specialist expertise carries a premium and shouldn\u2019t be priced like a commodity. Where the role genuinely doesn\u2019t need our most differentiated people, the price can reflect that.',
+      trade:'We\u2019ll price the roles that don\u2019t require our most specialist expertise differently from those that do.'
+    },
+    {
+      n:5, cat:'Commitment',
+      ask:'Commit to volume or a longer term',
+      detail:'A firm forward commitment de-risks our staffing and pipeline, and that is worth real money. No commitment means no reason for a lower rate.',
+      trade:'We\u2019ll discount the rate in exchange for a committed volume or a longer contracted term.'
+    },
+    {
+      n:6, cat:'Level & staffing mix',
+      ask:'Rebalance the seniority pyramid',
+      detail:'A more junior-weighted team costs less to run. Be explicit that this changes the team you get -- it is not the same team at a lower price.',
+      trade:'We\u2019ll lower the blended rate by rebalancing the team\u2019s seniority mix, on the understanding that this changes the shape of the team.'
+    },
+    {
+      n:7, cat:'Staffing location mix',
+      ask:'Blend more delivery offshore',
+      detail:'Shifting suitable work to lower-cost delivery locations reduces our cost base, so the saving is real rather than a concession.',
+      trade:'We\u2019ll lower the blended rate by shifting a greater share of delivery to our offshore locations.'
+    }
+  ];
+
+  var leverList = document.getElementById('leverList');
+  var offerBody = document.getElementById('offerBody');
+  var offerCount = document.getElementById('offerCount');
+  var selectedLevers = [];
+
+  levers.forEach(function(lv){
+    var btn = document.createElement('button');
+    btn.className = 'lever-card';
+    btn.type = 'button';
+    btn.setAttribute('aria-pressed', 'false');
+    btn.innerHTML =
+      '<span class="lever-num">' + lv.n + '</span>' +
+      '<span>' +
+        '<span class="lever-cat">' + lv.cat + '</span>' +
+        '<p class="lever-ask">' + lv.ask + '</p>' +
+        '<p class="lever-detail">' + lv.detail + '</p>' +
+      '</span>' +
+      '<span class="lever-check">&#10003;</span>';
+
+    btn.addEventListener('click', function(){
+      var i = selectedLevers.indexOf(lv);
+      if (i === -1) { selectedLevers.push(lv); btn.classList.add('selected'); btn.setAttribute('aria-pressed','true'); }
+      else { selectedLevers.splice(i, 1); btn.classList.remove('selected'); btn.setAttribute('aria-pressed','false'); }
+      renderOffer();
+    });
+
+    leverList.appendChild(btn);
+  });
+
+  function offerText(){
+    var ordered = levers.filter(function(l){ return selectedLevers.indexOf(l) !== -1; });
+    var lines = ['We can move on price. Here\u2019s what that would take:'];
+    ordered.forEach(function(l){ lines.push('\u2022 ' + l.trade); });
+    lines.push('');
+    lines.push('That way the number changes because the deal changed -- not because we simply cut our rate.');
+    return lines.join('\n');
+  }
+
+  function renderOffer(){
+    offerCount.textContent = selectedLevers.length + ' of 7 levers pulled';
+
+    if (selectedLevers.length === 0) {
+      offerBody.innerHTML =
+        '<p class="offer-empty">Nothing selected yet. If you walk into the room with nothing to trade, ' +
+        'the only lever left is <strong>margin</strong> -- and that is by far the most expensive one on this page.</p>';
+      return;
+    }
+
+    var ordered = levers.filter(function(l){ return selectedLevers.indexOf(l) !== -1; });
+    var html = '<p class="offer-lead">We can move on price. Here\u2019s what that would take:</p><ul class="offer-list">';
+    ordered.forEach(function(l){ html += '<li>' + l.trade + '</li>'; });
+    html += '</ul><p class="offer-close">That way the number changes because the deal changed -- not because we simply cut our rate.</p>';
+    html += '<div class="offer-actions">' +
+      '<button class="offer-btn primary" id="copyOffer" type="button">Copy</button>' +
+      '<button class="offer-btn ghost" id="resetOffer" type="button">Reset</button></div>';
+    offerBody.innerHTML = html;
+
+    document.getElementById('resetOffer').addEventListener('click', function(){
+      selectedLevers = [];
+      Array.prototype.forEach.call(leverList.querySelectorAll('.lever-card'), function(b){
+        b.classList.remove('selected'); b.setAttribute('aria-pressed','false');
+      });
+      renderOffer();
+    });
+
+    document.getElementById('copyOffer').addEventListener('click', function(){
+      var btn = this;
+      var text = offerText();
+      function done(){ btn.textContent = 'Copied'; setTimeout(function(){ btn.textContent = 'Copy'; }, 1600); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, fallback);
+      } else { fallback(); }
+      function fallback(){
+        var ta = document.createElement('textarea');
+        ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); done(); } catch(e) { btn.textContent = 'Press Ctrl+C'; }
+        document.body.removeChild(ta);
+      }
+    });
+  }
+
+  renderOffer();
 
   var miniIndex = document.getElementById('miniIndex');
   var navEl = document.querySelector('.nav');
