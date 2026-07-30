@@ -314,7 +314,20 @@
     font-size:10.5px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;
     color:var(--grey);margin-bottom:7px;
   }
-  .lever-detail{font-size:14px;line-height:1.55;color:#2A2A2A;margin:0;}
+  /* Each lever runs in two directions: one end justifies a lower price,
+     the other legitimately commands a premium. */
+  .lever-dirs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:13px;}
+  @media (max-width:620px){.lever-dirs{grid-template-columns:1fr;}}
+  .dir{border-radius:10px;padding:11px 13px;}
+  .dir.down{background:#F1FAF7;border:1px solid #D6EFE8;}
+  .dir.up{background:#F5F8FF;border:1px solid #DFE7FF;}
+  .dir-label{
+    font-size:9.5px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;
+    margin-bottom:5px;display:block;
+  }
+  .dir.down .dir-label{color:#0A7A62;}
+  .dir.up .dir-label{color:var(--navy);}
+  .dir p{font-size:13px;line-height:1.45;margin:0;color:#2A2A2A;}
   .lever-check{
     width:22px;height:22px;border-radius:6px;border:1.5px solid var(--line);
     display:flex;align-items:center;justify-content:center;margin-top:3px;
@@ -832,8 +845,8 @@
     <div class="section-head">
       <div class="kicker">Before You Concede</div>
       <h2>Trade, don't discount.</h2>
-      <p>Price should be an <em>output</em> of the deal's shape, not an input you negotiate in isolation. When a client pushes on price, there are seven things about the deal you can change so the number moves honestly -- margin is the eighth, and only after the rest are exhausted.</p>
-      <p><strong>Tick everything the client could realistically give you</strong>, and your counter-offer writes itself.</p>
+      <p>Price should be an <em>output</em> of the deal's shape, not an input you negotiate in isolation. Each of these seven levers runs in two directions: one end justifies a genuinely lower price, the other legitimately commands a premium. Margin is the eighth lever, and only after the rest are exhausted.</p>
+      <p><strong>Tick everything the client could realistically give you</strong>, and your counter-offer writes itself. Watch the premium column too -- several of these are things we routinely absorb rather than charge for.</p>
     </div>
 
     <div class="lever-layout">
@@ -1228,43 +1241,50 @@
     {
       n:1, cat:'Client budget',
       ask:'Shape to the budget, don\u2019t discount down to it',
-      detail:'If the budget is genuinely capped, design a smaller or phased engagement that fits inside it. The client lands on their number and the rate never moves.',
+      lowers:'A genuinely capped budget is a scoping instruction, not a discount request. Design a smaller or phased engagement that fits inside it \u2014 the client lands on their number and the rate never moves.',
+      premium:'Where the business case value is large and the budget is open, price to the value being created rather than to a cost-plus calculation.',
       trade:'We\u2019ll shape the engagement to fit inside your budget envelope, rather than discount our rate to reach it.'
     },
     {
       n:2, cat:'Scope & time',
       ask:'Take something out, or give us longer',
-      detail:'Removing a workstream lowers the price directly. Extending the timeline lets the same work run with a smaller concurrent team, which lowers it too.',
+      lowers:'Removing a workstream lowers the price directly. Extending the timeline lets the same work run with a smaller concurrent team, which lowers it too.',
+      premium:'A compressed deadline is the opposite trade. Surge staffing, parallel workstreams and overtime all cost more to run \u2014 acceleration should be priced, not absorbed.',
       trade:'We\u2019ll reduce the price in exchange for removing a workstream from scope, or extending the delivery window.'
     },
     {
       n:3, cat:'Deal structure',
-      ask:'Move off T&M to a fixed structure',
-      detail:'Commoditised T&M is the most expensive way for a client to buy. A fixed-capacity or fixed-fee structure lets us plan utilisation, and that efficiency funds a lower effective rate.',
-      trade:'We\u2019ll lower the effective rate in exchange for moving to a fixed-capacity or fixed-fee structure rather than time and materials.'
+      ask:'Guarantee the capacity stays full',
+      lowers:'A fixed-capacity POD with committed utilisation removes bench risk and the churn of scoping and contracting every initiative separately. That efficiency is real, and it can fund a lower blended rate.',
+      premium:'Fixed price for fixed scope is a premium, not a discount \u2014 we absorb the overrun risk, so the fee must carry a risk contingency. The same applies to outcome-based structures, where we take on business risk as well.',
+      trade:'We\u2019ll lower the blended rate in exchange for committed, continuous capacity we can plan and staff around.'
     },
     {
       n:4, cat:'Differentiation',
       ask:'Be honest about where you need our specialists',
-      detail:'Scarce, specialist expertise carries a premium and shouldn\u2019t be priced like a commodity. Where the role genuinely doesn\u2019t need our most differentiated people, the price can reflect that.',
+      lowers:'Where a role genuinely needs standard, widely available capability, the price should reflect that rather than carrying a specialist premium it doesn\u2019t warrant.',
+      premium:'Scarce expertise, named individuals, or access to our accelerators and IP are not commodities and should never be priced like them.',
       trade:'We\u2019ll price the roles that don\u2019t require our most specialist expertise differently from those that do.'
     },
     {
       n:5, cat:'Commitment',
       ask:'Commit to volume or a longer term',
-      detail:'A firm forward commitment de-risks our staffing and pipeline, and that is worth real money. No commitment means no reason for a lower rate.',
+      lowers:'A firm forward commitment de-risks our staffing and pipeline, and that is worth real money. Slalom\u2019s standard framework already tiers discounts against committed annual spend.',
+      premium:'No commitment means no reason for a lower rate. Ad-hoc, cancel-anytime arrangements leave all the planning risk with us and should be priced accordingly.',
       trade:'We\u2019ll discount the rate in exchange for a committed volume or a longer contracted term.'
     },
     {
       n:6, cat:'Level & staffing mix',
       ask:'Rebalance the seniority pyramid',
-      detail:'A more junior-weighted team costs less to run. Be explicit that this changes the team you get -- it is not the same team at a lower price.',
+      lowers:'A more junior-weighted team costs less to run. Be explicit that this changes the team you get \u2014 it is not the same team at a lower price.',
+      premium:'A senior-heavy team, or one built around specific named people, costs more and should be priced that way rather than averaged down.',
       trade:'We\u2019ll lower the blended rate by rebalancing the team\u2019s seniority mix, on the understanding that this changes the shape of the team.'
     },
     {
       n:7, cat:'Staffing location mix',
       ask:'Blend more delivery offshore',
-      detail:'Shifting suitable work to lower-cost delivery locations reduces our cost base, so the saving is real rather than a concession.',
+      lowers:'Shifting suitable work to lower-cost delivery locations reduces our cost base, so the saving is genuine rather than a concession.',
+      premium:'Fully onshore delivery, or a required on-site presence, costs more to staff. If the client needs it, it should be priced rather than quietly absorbed.',
       trade:'We\u2019ll lower the blended rate by shifting a greater share of delivery to our offshore locations.'
     }
   ];
@@ -1284,7 +1304,10 @@
       '<span>' +
         '<span class="lever-cat">' + lv.cat + '</span>' +
         '<p class="lever-ask">' + lv.ask + '</p>' +
-        '<p class="lever-detail">' + lv.detail + '</p>' +
+        '<span class="lever-dirs">' +
+          '<span class="dir down"><span class="dir-label">&darr; Lowers the price</span><p>' + lv.lowers + '</p></span>' +
+          '<span class="dir up"><span class="dir-label">&uarr; Commands a premium</span><p>' + lv.premium + '</p></span>' +
+        '</span>' +
       '</span>' +
       '<span class="lever-check">&#10003;</span>';
 
