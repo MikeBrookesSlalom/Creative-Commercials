@@ -236,7 +236,7 @@
   .card{
     background:var(--paper);border:1px solid var(--line);border-radius:16px;
     padding:24px 24px 22px;margin-bottom:16px;scroll-margin-top:120px;
-    max-height:1400px;overflow:hidden;
+    max-height:4000px;overflow:hidden;
     transition:box-shadow .25s ease, border-color .25s ease, opacity .3s ease,
                max-height .4s ease, margin .4s ease, padding .4s ease, transform .3s ease, border-width .3s ease;
   }
@@ -309,10 +309,11 @@
     font-size:11.5px;font-weight:800;margin-top:1px;
   }
   .lever-card.selected .lever-num{background:var(--navy);color:var(--paper);}
-  .lever-ask{font-size:15.5px;font-weight:800;margin:0 0 5px;letter-spacing:-0.005em;}
+  .lever-body{display:block;}
+  .lever-ask{display:block;font-size:15.5px;font-weight:800;margin:0 0 5px;letter-spacing:-0.005em;}
   .lever-cat{
     font-size:10.5px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;
-    color:var(--grey);margin-bottom:7px;
+    color:var(--grey);margin-bottom:7px;display:block;
   }
   /* Each lever runs in two directions: one end justifies a lower price,
      the other legitimately commands a premium. */
@@ -327,7 +328,7 @@
   }
   .dir.down .dir-label{color:#0A7A62;}
   .dir.up .dir-label{color:var(--navy);}
-  .dir p{font-size:13px;line-height:1.45;margin:0;color:#2A2A2A;}
+  .dir-text{display:block;font-size:13px;line-height:1.45;color:#2A2A2A;}
   .lever-check{
     width:22px;height:22px;border-radius:6px;border:1.5px solid var(--line);
     display:flex;align-items:center;justify-content:center;margin-top:3px;
@@ -607,7 +608,7 @@
           <div class="why-not">This is an efficient delivery decision, not a commercial one -- the risk profile between Slalom and the client hasn't moved at all.</div>
         </div>
 
-        <div class="card" id="c-fixed" data-score="3" data-tags="defined-scope">
+        <div class="card" id="c-fixed" data-score="3" data-tags="defined-scope,hard-deadline,scope-creep">
           <div class="card-top"><h4>Fixed price</h4><span class="creativity-meter"></span></div>
           <div class="badge-row"><span class="readiness r-ready">Ready now</span><span class="official-tag">Official: Traditional</span></div>
           <p>Bundling the scope into a single number.</p>
@@ -616,7 +617,7 @@
           <div class="why-not">A standard commercial construct now -- most enterprise buyers expect it as the baseline, not as evidence of a creative partner.</div>
         </div>
 
-        <div class="card" id="c-feesatrisk" data-score="4" data-tags="large-programme,outcome-risk">
+        <div class="card" id="c-feesatrisk" data-score="4" data-tags="large-programme,outcome-risk,hard-deadline,defined-scope">
           <div class="card-top"><h4>Fees at risk</h4><span class="creativity-meter"></span></div>
           <div class="badge-row"><span class="readiness r-ready">Ready now</span><span class="official-tag">Official: Fees At Risk</span></div>
           <p>Invoice a standard portion (e.g. 85%) and hold the remainder back, payable only if agreed performance conditions are met.</p>
@@ -654,15 +655,15 @@
           <p class="field-label">Problem</p>
           <p>Procurement needs to see a bigger discount number to feel comfortable awarding -- even when the commercial reality is already tight.</p>
           <p class="field-label">Solution</p>
-          <p>Calculate the discount on an "effective" basis: fold in things like COLA adjustments you won't pass through across a year-end, or resource already invested in the account, to arrive at a larger -- and still entirely honest -- discount figure.</p>
+          <p>Calculate the discount on an "effective" basis: fold in things like COLA adjustments you won't pass through across a year-end, or resource already invested in the account, to arrive at a larger headline discount figure.</p>
           <p class="field-label when">When to consider</p>
-          <p>Best when procurement needs a bigger discount headline than the deal can genuinely absorb, and there are real costs to fold in honestly. Slalom's standard framework already stacks several named discounts, so build the effective number from those rather than inventing one.</p>
+          <p>Best when procurement needs a bigger discount headline than the deal can genuinely absorb, and there are real costs to fold in. The test is evidential: every component must be a cost Slalom can actually point to, so the number stands up if procurement asks you to break it down line by line. If you can't evidence it, it isn't an effective discount \u2014 it's a story.</p>
           <p class="field-label margin">Margin &amp; commercial impact</p>
           <p>Doesn't touch true margin at all -- it's a presentation exercise, not a giveaway. But it only works once per deal: don't let the same COLA hold get reused as a "discount" again at renewal.</p>
           <div class="example-row"><span class="example-chip">Example: GSK</span></div>
         </div>
 
-        <div class="card" id="c-subscription" data-score="6" data-tags="low-commitment">
+        <div class="card" id="c-subscription" data-score="6" data-tags="low-commitment,undefined-scope">
           <div class="card-top"><h4>Capacity subscription</h4><span class="creativity-meter"></span></div>
           <div class="badge-row"><span class="readiness r-ops">Ops build required</span><span class="official-tag">Official: Subscription</span></div>
           <p class="field-label">Problem</p>
@@ -675,7 +676,7 @@
           <p>Retainer revenue is stickier but often lower margin per hour than project work in isolation -- model the annualised account value, not the headline rate.</p>
         </div>
 
-        <div class="card" id="c-ratelock" data-score="6" data-tags="price-certainty">
+        <div class="card" id="c-ratelock" data-score="6" data-tags="price-certainty,large-programme">
           <div class="card-top"><h4>Rate-lock partnership pricing</h4><span class="creativity-meter"></span></div>
           <div class="badge-row"><span class="readiness r-ready">Ready now</span></div>
           <p class="field-label">Problem</p>
@@ -701,7 +702,7 @@
           <p>Contract value is unchanged -- this is a working-capital trade, not a margin concession. Just confirm Slalom's own cash position can absorb the deferral before offering it.</p>
         </div>
 
-        <div class="card" id="c-pod" data-score="7" data-tags="standard-ask,low-commitment,price-certainty">
+        <div class="card" id="c-pod" data-score="7" data-tags="standard-ask,low-commitment,price-certainty,undefined-scope,slow-contracting">
           <div class="card-top"><h4>Fixed-capacity POD</h4><span class="creativity-meter"></span></div>
           <div class="badge-row"><span class="readiness r-ready">Ready now</span></div>
           <p class="field-label">Problem</p>
@@ -729,7 +730,7 @@
           <div class="example-row"><span class="example-chip">Example: AbbVie</span></div>
         </div>
 
-        <div class="card" id="c-msow" data-score="7" data-tags="slow-contracting,procurement-cap,low-commitment">
+        <div class="card" id="c-msow" data-score="7" data-tags="slow-contracting,procurement-cap,low-commitment,undefined-scope,large-programme">
           <div class="card-top"><h4>Master SOW &amp; drawdown</h4><span class="creativity-meter"></span></div>
           <div class="badge-row"><span class="readiness r-ready">Ready now</span></div>
           <p class="field-label">Problem</p>
@@ -744,7 +745,7 @@
 
         <div class="card" id="c-coinvest" data-score="7" data-tags="ip-reuse">
           <div class="card-top"><h4>Asset co-investment</h4><span class="creativity-meter"></span></div>
-          <div class="badge-row"><span class="readiness r-signoff">Leadership sign-off</span><span class="official-tag">Official: Royalty</span></div>
+          <div class="badge-row"><span class="readiness r-ops">Ops build required</span><span class="official-tag">Official: Royalty</span></div>
           <p class="field-label">Problem</p>
           <p>Client wants a lower rate; Slalom wants to be more than a staff-aug line item on their books.</p>
           <p class="field-label">Solution</p>
@@ -781,7 +782,7 @@
           <p>No impact on current scope margin at all -- it only discounts hypothetical future work that Slalom would otherwise have to fight hard to win anyway.</p>
         </div>
 
-        <div class="card" id="c-discovery" data-score="8" data-tags="discovery-cost,unsolvable">
+        <div class="card" id="c-discovery" data-score="8" data-tags="discovery-cost,unsolvable,cashflow">
           <div class="card-top"><h4>Discovery at risk, credited forward</h4><span class="creativity-meter"></span></div>
           <div class="badge-row"><span class="readiness r-ready">Ready now</span></div>
           <p class="field-label">Problem</p>
@@ -822,7 +823,7 @@
           <div class="example-row"><span class="example-chip">Example: Eastman</span><span class="example-chip">Example: NCLH</span></div>
         </div>
 
-        <div class="card" id="c-glidepath" data-score="10" data-tags="stickiness,outcome-risk,measurable-gain">
+        <div class="card" id="c-glidepath" data-score="10" data-tags="stickiness,outcome-risk,measurable-gain,large-programme">
           <div class="card-top"><h4>The Glidepath</h4><span class="creativity-meter"></span></div>
           <div class="badge-row"><span class="readiness r-signoff">Leadership sign-off</span></div>
           <p class="field-label">Problem</p>
@@ -916,7 +917,7 @@
         <div class="proof-model">Value quantification for revenue share</div>
         <p>Before proposing a value-based structure, the upside was modelled in detail -- customer lifetime value by brand, specific upgrade and upsell volumes, and net yield per guest -- to establish a credible, shared basis for what the work was actually worth.</p>
         <div class="proof-metrics">
-          <div class="proof-metric"><div class="pm-val">$155.5M</div><div class="pm-lbl">Projected annual revenue lift</div></div>
+          <div class="proof-metric"><div class="pm-val">$155M</div><div class="pm-lbl">Projected annual revenue lift</div></div>
           <div class="proof-metric"><div class="pm-val">2.5%</div><div class="pm-lbl">Lift to net revenues</div></div>
         </div>
       </div>
@@ -1015,11 +1016,12 @@
 <section class="closing">
   <div class="wrap">
     <h2>The test for whether it's actually creative</h2>
-    <p>Ask one question: has anyone's risk actually moved? If the client is simply paying less, it's a discount -- however it's dressed. If Slalom and the client are both exposed to the same outcome, in either direction, it's a creative commercial.</p>
+    <p>Two questions, and it needs to pass one of them. <strong>Has anyone's risk actually moved?</strong> Or, <strong>is the concession funded from somewhere other than margin</strong> — shared upside, recovered efficiency, reusable IP, working capital, or a discount headline built from costs you can evidence?</p>
+    <p>If neither is true, the client is simply paying less and Slalom is simply earning less. That's a discount, however it's dressed.</p>
     <p>This is meant to be a living list. New models slot straight into the situation filter above by tagging the client scenario they answer, and several can be combined on the same deal -- a Master SOW alongside a fixed-capacity POD, or a glidepath alongside land-and-expand insurance.</p>
     <div class="helpbox">
       <h4>Who to bring in</h4>
-      <p><strong>Commercial Strategy</strong> &mdash; for pricing structure, deal constructs, discount frameworks and procurement engagement. Katie Jenner leads Life Sciences &amp; Healthcare; Craig Winkels leads the team globally.</p>
+      <p><strong>Commercial Strategy</strong> &mdash; for pricing structure, deal constructs, discount frameworks and procurement engagement. Katie Jenner leads Life Sciences &amp; Healthcare; Craig Winkels is the overall Commercial Team Lead.</p>
       <p><strong>Pursuit Support</strong> &mdash; end-to-end RFx support is available for pursuits above $3M in the US or $2M internationally; commercial information support below that.</p>
       <p><strong>Legal and Finance</strong> &mdash; early, for anything with fees at risk, revenue or gain share, or IP reuse. Complex structures carry real financial risk for Slalom, which is why Finance needs to be in the room rather than informed afterwards.</p>
     </div>
@@ -1048,23 +1050,23 @@
     { id:'c-tm', title:'T&M (Time & Materials)', score:1, type:'standard', tags:['undefined-scope'] },
     { id:'c-discount', title:'Straight discounts', score:1, type:'standard', tags:['standard-ask'] },
     { id:'c-allshore', title:'Allshore delivery', score:2, type:'standard', tags:['standard-ask'] },
-    { id:'c-fixed', title:'Fixed price', score:3, type:'standard', tags:['defined-scope'] },
-    { id:'c-feesatrisk', title:'Fees at risk', score:4, type:'standard', tags:['large-programme','outcome-risk'] },
+    { id:'c-fixed', title:'Fixed price', score:3, type:'standard', tags:['defined-scope','hard-deadline','scope-creep'] },
+    { id:'c-feesatrisk', title:'Fees at risk', score:4, type:'standard', tags:['large-programme','outcome-risk','hard-deadline','defined-scope'] },
     { id:'c-volume', title:'Volume-based discounting', score:5, type:'standard', tags:['low-commitment','standard-ask'] },
     { id:'c-effective', title:'Effective discount engineering', score:6, type:'creative', tags:['procurement-cap'] },
-    { id:'c-subscription', title:'Capacity subscription', score:6, type:'creative', tags:['low-commitment'] },
-    { id:'c-ratelock', title:'Rate-lock partnership pricing', score:6, type:'creative', tags:['price-certainty'] },
+    { id:'c-subscription', title:'Capacity subscription', score:6, type:'creative', tags:['low-commitment','undefined-scope'] },
+    { id:'c-ratelock', title:'Rate-lock partnership pricing', score:6, type:'creative', tags:['price-certainty','large-programme'] },
     { id:'c-deferred', title:'Deferred payments / front-loaded discount', score:6, type:'creative', tags:['cashflow'] },
-    { id:'c-pod', title:'Fixed-capacity POD', score:7, type:'creative', tags:['standard-ask','low-commitment','price-certainty'] },
+    { id:'c-pod', title:'Fixed-capacity POD', score:7, type:'creative', tags:['standard-ask','low-commitment','price-certainty','undefined-scope','slow-contracting'] },
     { id:'c-bonus', title:'The discretionary bonus', score:7, type:'creative', tags:['procurement-cap','standard-ask'] },
-    { id:'c-msow', title:'Master SOW & drawdown', score:7, type:'creative', tags:['slow-contracting','procurement-cap','low-commitment'] },
+    { id:'c-msow', title:'Master SOW & drawdown', score:7, type:'creative', tags:['slow-contracting','procurement-cap','low-commitment','undefined-scope','large-programme'] },
     { id:'c-coinvest', title:'Asset co-investment', score:7, type:'creative', tags:['ip-reuse'] },
     { id:'c-satisfaction', title:'Satisfaction-based compensation', score:7, type:'creative', tags:['relationship-trust','outcome-risk'] },
     { id:'c-landexpand', title:'Land-and-expand insurance', score:8, type:'creative', tags:['scope-creep','stickiness'] },
-    { id:'c-discovery', title:'Discovery at risk, credited forward', score:8, type:'creative', tags:['discovery-cost','unsolvable'] },
+    { id:'c-discovery', title:'Discovery at risk, credited forward', score:8, type:'creative', tags:['discovery-cost','unsolvable','cashflow'] },
     { id:'c-outcome', title:'Gain share (outcome-linked)', score:9, type:'creative', tags:['outcome-risk','measurable-gain','unsolvable','hard-deadline'] },
     { id:'c-revshare', title:'Revenue share', score:9, type:'creative', tags:['revenue-growth','outcome-risk','measurable-gain'] },
-    { id:'c-glidepath', title:'The Glidepath', score:10, type:'creative', tags:['stickiness','outcome-risk','measurable-gain'] }
+    { id:'c-glidepath', title:'The Glidepath', score:10, type:'creative', tags:['stickiness','outcome-risk','measurable-gain','large-programme'] }
   ];
 
   var byScore = {};
@@ -1301,12 +1303,12 @@
     btn.setAttribute('aria-pressed', 'false');
     btn.innerHTML =
       '<span class="lever-num">' + lv.n + '</span>' +
-      '<span>' +
+      '<span class="lever-body">' +
         '<span class="lever-cat">' + lv.cat + '</span>' +
-        '<p class="lever-ask">' + lv.ask + '</p>' +
+        '<span class="lever-ask">' + lv.ask + '</span>' +
         '<span class="lever-dirs">' +
-          '<span class="dir down"><span class="dir-label">&darr; Lowers the price</span><p>' + lv.lowers + '</p></span>' +
-          '<span class="dir up"><span class="dir-label">&uarr; Commands a premium</span><p>' + lv.premium + '</p></span>' +
+          '<span class="dir down"><span class="dir-label">&darr; Lowers the price</span><span class="dir-text">' + lv.lowers + '</span></span>' +
+          '<span class="dir up"><span class="dir-label">&uarr; Commands a premium</span><span class="dir-text">' + lv.premium + '</span></span>' +
         '</span>' +
       '</span>' +
       '<span class="lever-check">&#10003;</span>';
